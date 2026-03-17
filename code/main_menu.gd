@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var currentPathLabel = $ColorRect/Label_path
+
 var MENU_GROUP_SETTING_PATH 		: int = 1001
 var MENU_GROUP_SETTING_EXIT 		: int = 1002
 var MENU_GROUP_MODULE_ANDROID 	: int = 2001
@@ -93,8 +95,22 @@ func clickGroupMenu(id: int):
 # 菜单的点击事件 
 func _open_work_path_dialog():
 	print("选择工作路径..")
-	pass
+	var dirPath = MyUtil.get_data("file_dir_path")
+	# 打开路径
+	var fileDialog = MyUtil.open_file_folder(dirPath)
+	# 关联信号
+	fileDialog.dir_selected.connect(dir_selected)
 	
+	pass
+
+# 选择的文件路径
+func dir_selected(path: String):
+	print("当前选择的路径: " , path)
+	MyUtil.set_data("file_dir_path", path)
+	# 需要修改底部的路径地址
+	currentPathLabel.text = "当前工作路径 " + path
+	pass
+
 # 菜单的点击事件 
 func _quit_application():
 	print("退出程序..")
