@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://tj6l8lfvma7h"]
+
+[ext_resource type="Script" uid="uid://d2ohp7cexwma6" path="res://code/exit_progress.gd" id="1_k2xyq"]
+[ext_resource type="Texture2D" uid="uid://wry0tic8dxw3" path="res://resource/drawable/button/button_background_cancel.png" id="1_v4n58"]
+[ext_resource type="Texture2D" uid="uid://duw8fuahfm0qp" path="res://resource/drawable/button/button_background_confirm.png" id="2_so8jh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whfoq"]
+bg_color = Color(0.7632465, 0.76324654, 0.7632463, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="ExitProgress" type="Node2D" unique_id=825694170]
+script = ExtResource("1_k2xyq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=51083951]
+self_modulate = Color(0.85864794, 0.858648, 0.85864794, 0.44705883)
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="Panel" parent="." unique_id=1543539282]
+offset_left = 600.0
+offset_top = 300.0
+offset_right = 1320.0
+offset_bottom = 780.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_whfoq")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1823155577]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 111.0
+offset_right = 518.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(0.091632105, 0.091632105, 0.091632105, 1)
+theme_override_font_sizes/font_size = 48
+text = "您确认退出吗？"
+
+[node name="Button_cancel" type="Button" parent="Panel" unique_id=264711248]
+layout_mode = 0
+offset_left = 51.000008
+offset_top = 288.0
+offset_right = 392.0
+offset_bottom = 403.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0.70963067, 0.70963126, 0.7096309, 1)
+theme_override_colors/icon_pressed_color = Color(0.76058465, 0.7532723, 0.8662796, 1)
+theme_override_colors/icon_hover_color = Color(0.82325715, 0.81786996, 0.9038078, 1)
+theme_override_font_sizes/font_size = 48
+text = "取消"
+icon = ExtResource("1_v4n58")
+flat = true
+icon_alignment = 1
+
+[node name="Button_confirm" type="Button" parent="Panel" unique_id=157483668]
+layout_mode = 0
+offset_left = 349.99997
+offset_top = 288.99997
+offset_right = 698.0
+offset_bottom = 406.99997
+scale = Vector2(0.8, 0.8)
+theme_override_colors/icon_pressed_color = Color(0.08164752, 0.5510907, 0.10982052, 1)
+theme_override_colors/icon_hover_color = Color(0.10701827, 0.6981298, 0.14030603, 1)
+theme_override_font_sizes/font_size = 48
+text = "确定"
+icon = ExtResource("2_so8jh")
+flat = true
+icon_alignment = 1

@@ -10,6 +10,9 @@ var MENU_GROUP_ABOUT_VERSION 	: int = 3001
 var MENU_GROUP_ABOUT_DOCUMENT 	: int = 3002
 var MENU_GROUP_ABOUT_AUTHOR 		: int = 3003
 
+# 定义信号
+signal exitProgress()
+
 # 使用字典映射处理函数   
 var menu_handlers = {   
 	MENU_GROUP_SETTING_PATH		: "_open_work_path_dialog",   
@@ -114,6 +117,7 @@ func dir_selected(path: String):
 # 菜单的点击事件 
 func _quit_application():
 	print("退出程序..")
+	emit_signal("exitProgress")
 	pass
 	
 # 菜单的点击事件 
