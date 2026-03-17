@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://rsm1nc0o5cb4"]
+
+[ext_resource type="Script" uid="uid://cufilfnjrqk8g" path="res://code/splash.gd" id="1_0ghnj"]
+[ext_resource type="Texture2D" uid="uid://81742h18hwkl" path="res://resource/drawable/splash/taiji_01.png" id="1_y25p5"]
+[ext_resource type="Texture2D" uid="uid://c01qoxrw4a7c1" path="res://resource/drawable/splash/taiji_02.png" id="2_0ghnj"]
+[ext_resource type="Texture2D" uid="uid://bhaefii7fiawd" path="res://resource/drawable/splash/taiji_03.png" id="3_dye4y"]
+[ext_resource type="Texture2D" uid="uid://dgw1o85mhi3y0" path="res://resource/drawable/splash/taiji_04.png" id="4_8vkak"]
+[ext_resource type="Texture2D" uid="uid://b6opvv44211u0" path="res://resource/drawable/splash/taiji_05.png" id="5_ek21w"]
+[ext_resource type="Texture2D" uid="uid://cmv6kaq0ysgw0" path="res://resource/drawable/splash/taiji_06.png" id="6_nslpq"]
+[ext_resource type="Texture2D" uid="uid://dtoc7w84nrypo" path="res://resource/drawable/splash/taiji_07.png" id="7_bvl03"]
+[ext_resource type="Texture2D" uid="uid://cqyguf27bem0d" path="res://resource/drawable/splash/taiji_08.png" id="8_qj0vf"]
+[ext_resource type="Texture2D" uid="uid://cvhgbdx3iyxpy" path="res://resource/drawable/splash/taiji_09.png" id="9_laok8"]
+[ext_resource type="Texture2D" uid="uid://dv8pytcwgx2jo" path="res://resource/drawable/splash/taiji_10.png" id="10_oibak"]
+[ext_resource type="Texture2D" uid="uid://4ija6hrwtadm" path="res://resource/drawable/splash/taiji_11.png" id="11_qxdsm"]
+[ext_resource type="Texture2D" uid="uid://beyiexsn6iqtu" path="res://resource/drawable/splash/taiji_12.png" id="12_pg0ym"]
+[ext_resource type="Texture2D" uid="uid://gltk18yaq1pl" path="res://resource/drawable/splash/taiji_13.png" id="13_l3wyy"]
+[ext_resource type="Texture2D" uid="uid://6rfywds8m4ws" path="res://resource/drawable/splash/taiji_14.png" id="14_y5e7k"]
+[ext_resource type="Texture2D" uid="uid://b080vu7qwuuxj" path="res://resource/drawable/splash/taiji_15.png" id="15_v5fa2"]
+[ext_resource type="Texture2D" uid="uid://hj6t8a6pm40r" path="res://resource/drawable/splash/taiji_16.png" id="16_ssokc"]
+[ext_resource type="Texture2D" uid="uid://drx7pbvw35lm" path="res://resource/drawable/splash/taiji_17.png" id="17_bno8f"]
+[ext_resource type="Texture2D" uid="uid://c4ufr177ps8qh" path="res://resource/drawable/splash/taiji_18.png" id="18_miatv"]
+[ext_resource type="Texture2D" uid="uid://cbah1f11ntbg5" path="res://resource/drawable/splash/taiji_19.png" id="19_jjpic"]
+[ext_resource type="Texture2D" uid="uid://da14acic7frkr" path="res://resource/drawable/splash/taiji_20.png" id="20_cyhgw"]
+[ext_resource type="Texture2D" uid="uid://djvh8rulsxa0r" path="res://resource/drawable/splash/taiji_21.png" id="21_8tje7"]
+[ext_resource type="Texture2D" uid="uid://cqvrrupak0jvw" path="res://resource/drawable/splash/taiji_22.png" id="22_e1k7c"]
+[ext_resource type="Texture2D" uid="uid://bve3yy86ksblg" path="res://resource/drawable/splash/taiji_23.png" id="23_2kqiw"]
+[ext_resource type="Texture2D" uid="uid://2gul7opiyf6u" path="res://resource/drawable/splash/taiji_24.png" id="24_cb2xq"]
+[ext_resource type="Texture2D" uid="uid://cl5d6va0qs4gh" path="res://resource/drawable/splash/taiji_25.png" id="25_rwfll"]
+[ext_resource type="Texture2D" uid="uid://dqoy45jup5kf" path="res://resource/drawable/splash/taiji_26.png" id="26_3cvkf"]
+[ext_resource type="Texture2D" uid="uid://b72vyf2ry440y" path="res://resource/drawable/splash/taiji_27.png" id="27_12lb6"]
+[ext_resource type="Texture2D" uid="uid://bb1tjp6vohmgi" path="res://resource/drawable/splash/taiji_28.png" id="28_udr58"]
+[ext_resource type="Texture2D" uid="uid://cvycxk2cjqq67" path="res://resource/drawable/splash/taiji_29.png" id="29_qr4ub"]
+[ext_resource type="Texture2D" uid="uid://pq7fraf75bhc" path="res://resource/drawable/splash/taiji_30.png" id="30_a6ovx"]
+[ext_resource type="Texture2D" uid="uid://dvxtaopohmkj5" path="res://resource/drawable/splash/taiji_31.png" id="31_14bee"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptmfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y25p5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0ghnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dye4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8vkak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ek21w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nslpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bvl03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qj0vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_laok8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oibak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qxdsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pg0ym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_l3wyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_y5e7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_v5fa2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ssokc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_bno8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_miatv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jjpic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cyhgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8tje7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_e1k7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_2kqiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_cb2xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_rwfll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3cvkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_12lb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_udr58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_qr4ub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_a6ovx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_14bee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="Splash" type="Node2D" unique_id=1829903032]
+script = ExtResource("1_0ghnj")
+
+[node name="Splash_AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=930057311]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_ptmfj")
