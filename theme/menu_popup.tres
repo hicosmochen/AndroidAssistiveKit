@@ -15,6 +15,7 @@ corner_radius_bottom_left = 3
 
 [resource]
 default_font_size = 32
+LineEdit/colors/caret_color = Color(0.9028962, 0.5285068, 0.7141443, 1)
 MenuButton/colors/font_color = Color(1, 1, 1, 1)
 MenuButton/colors/font_hover_color = Color(0.87986773, 0.42920178, 0.5750163, 1)
 MenuButton/colors/font_pressed_color = Color(0.8784314, 0.42745098, 0.5764706, 1)
