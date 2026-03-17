@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://kq8cb2ao4yl7" path="res://code/main.gd" id="1_mjuaj"]
 [ext_resource type="PackedScene" uid="uid://rsm1nc0o5cb4" path="res://scene/splash.tscn" id="2_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://bqasntqlcphah" path="res://scene/main_menu.tscn" id="3_wp4xf"]
 
 [node name="Main" type="Node2D" unique_id=2112832231]
 script = ExtResource("1_mjuaj")
 
 [node name="Splash" parent="." unique_id=1829903032 instance=ExtResource("2_v0l8b")]
+
+[node name="MainMenu" parent="." unique_id=730619768 instance=ExtResource("3_wp4xf")]
