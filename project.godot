@@ -13,7 +13,7 @@ config_version=5
 config/name="安卓辅助套件"
 run/main_scene="uid://bmb5mar5xwy8j"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://iww3d45w6e5g"
 
 [display]
 
