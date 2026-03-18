@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5satwnucl1os"]
 
 [ext_resource type="Texture2D" uid="uid://dnundvf0x6wm3" path="res://resource/drawable/button/button_background_item.png" id="1_5snhq"]
-[ext_resource type="Script" uid="uid://du768cdnbmm17" path="res://code/model_file.gd" id="1_egrpi"]
+[ext_resource type="Script" uid="uid://du768cdnbmm17" path="res://code/script_scene/model_file.gd" id="1_egrpi"]
 
 [node name="ModelFile" type="Node2D" unique_id=26493553]
 script = ExtResource("1_egrpi")

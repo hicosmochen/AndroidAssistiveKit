@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rsm1nc0o5cb4"]
 
-[ext_resource type="Script" uid="uid://cufilfnjrqk8g" path="res://code/splash.gd" id="1_0ghnj"]
+[ext_resource type="Script" uid="uid://cufilfnjrqk8g" path="res://code/script_scene/splash.gd" id="1_0ghnj"]
 [ext_resource type="Texture2D" uid="uid://81742h18hwkl" path="res://resource/drawable/splash/taiji_01.png" id="1_y25p5"]
 [ext_resource type="Texture2D" uid="uid://c01qoxrw4a7c1" path="res://resource/drawable/splash/taiji_02.png" id="2_0ghnj"]
 [ext_resource type="Texture2D" uid="uid://bhaefii7fiawd" path="res://resource/drawable/splash/taiji_03.png" id="3_dye4y"]
