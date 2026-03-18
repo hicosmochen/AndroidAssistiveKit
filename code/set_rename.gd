@@ -7,9 +7,22 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# 获取当前系统缓存的重命名信息
+	var modelFileNode = get_node("/root/Main/ModelFile")
+	if modelFileNode and modelFileNode.has_method("getFileParamPrefix"):
+		lineEditPrefix.text = modelFileNode.getFileParamPrefix()
+	if modelFileNode and modelFileNode.has_method("getFileParamDeigits"):
+		lineEditDeigits.text = str(modelFileNode.getFileParamDeigits())
+	
+	# 设置光标闪烁
+	lineEditPrefix.caret_blink = true
+	lineEditDeigits.caret_blink = true
+	# 设置光标在输入框的末尾
+	lineEditPrefix.caret_column = lineEditPrefix.text.length()
+	lineEditDeigits.caret_column = lineEditDeigits.text.length()
+
 	buttonConfirm.connect("button_down", checkInputData)
 	buttonCancel.connect("button_down", clickButtonCancel) 
-	
 	lineEditPrefix.grab_focus()
 	pass # Replace with function body.
 
@@ -22,7 +35,7 @@ func clickButtonConfirm():
 	MyUtil.sendMessageToArea("重命名的位数是: "+ str(deigits))
 	# 需要将数据发送到组中 
 	get_tree().call_group("show_file_param","filePrefixChange",prefix)
-	get_tree().call_group("show_file_param","fileDeigitsChange",deigits)
+	get_tree().call_group("show_file_param","fileDeigitsChange",int(deigits))
 	get_tree().call_group("show_file_param", "filePathChange", MyUtil.get_data("file_dir_path"))
 	# 将当前的场景, 清理掉
 	self.queue_free()
