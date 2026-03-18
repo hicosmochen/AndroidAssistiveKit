@@ -3,7 +3,8 @@ extends Node2D
 @onready var currentPathLabel = $ColorRect/Label_path
 
 var MENU_GROUP_SETTING_PATH 		: int = 1001
-var MENU_GROUP_SETTING_EXIT 		: int = 1002
+var MENU_GROUP_SETTING_CLEAR 	: int = 1002
+var MENU_GROUP_SETTING_EXIT 		: int = 1003
 var MENU_GROUP_MODULE_ANDROID 	: int = 2001
 var MENU_GROUP_MODULE_FILE 		: int = 2002
 var MENU_GROUP_ABOUT_VERSION 	: int = 3001
@@ -15,7 +16,8 @@ signal exitProgress()
 
 # 使用字典映射处理函数   
 var menu_handlers = {   
-	MENU_GROUP_SETTING_PATH		: "_open_work_path_dialog",   
+	MENU_GROUP_SETTING_PATH		: "_open_work_path_dialog", 
+	MENU_GROUP_SETTING_CLEAR		: "_clear_system_log",  
 	MENU_GROUP_SETTING_EXIT		: "_quit_application",   
 	MENU_GROUP_MODULE_ANDROID	: "_open_android_script_module",   
 	MENU_GROUP_MODULE_FILE		: "_open_file_script_module",   
@@ -39,6 +41,7 @@ func create_menu():
 	# 添加主菜单 设置的子选项菜单
 	var menu_group_setting = menu_main_setting.get_popup()
 	menu_group_setting.add_item("工作路径", MENU_GROUP_SETTING_PATH)
+	menu_group_setting.add_item("清除日志", MENU_GROUP_SETTING_CLEAR)
 	menu_group_setting.add_item("退出", MENU_GROUP_SETTING_EXIT)
 	
 	# 创建主菜单 模块
@@ -113,6 +116,12 @@ func dir_selected(path: String):
 	MyUtil.sendMessageToArea("当前工作路径 " + path)
 	# 需要修改底部的路径地址
 	currentPathLabel.text = "当前工作路径 " + path
+	pass
+
+# 清理系统日志
+func _clear_system_log():
+	print("清理系统日志")
+	MyUtil.clearMessageToArea()
 	pass
 
 # 菜单的点击事件 

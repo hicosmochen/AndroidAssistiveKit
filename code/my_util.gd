@@ -93,3 +93,8 @@ func sendMessageToArea(message: String):
 	# 直接向组里面发送数据
 	get_tree().call_group("show_control","showControl",message)
 	pass
+
+# 发送清理系统日志给展示区域
+func clearMessageToArea():
+	get_tree().call_group("show_control","clearControl")
+	pass

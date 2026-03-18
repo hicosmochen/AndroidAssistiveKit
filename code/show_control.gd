@@ -20,6 +20,11 @@ func showControl(message: String):
 	control_label.text = "".join(builder)
 	pass
 
+# 清理内容
+func clearControl():
+	builder.clear()
+	control_label.text = ""
+	pass
 
 func current_time() -> String:
 	var timeBuilder = PackedStringArray()
