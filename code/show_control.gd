@@ -12,7 +12,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # 显示内容
-func showControl(message: String):
+func show_control(message: String):
 	builder.append(current_time())
 	builder.append(" ")
 	builder.append(message)
@@ -21,7 +21,7 @@ func showControl(message: String):
 	pass
 
 # 清理内容
-func clearControl():
+func clear_control():
 	builder.clear()
 	control_label.text = ""
 	pass

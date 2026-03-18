@@ -20,6 +20,3 @@ func playSplashAnimated():
 	emit_signal("splashAnimatedFinish")
 	free()
 	pass
-
-# 在其他场景中, 如 main 场景中接收信号的操作
-# get_node("Splash").connect("splashAnimatedFinish", func():   ...  pass)

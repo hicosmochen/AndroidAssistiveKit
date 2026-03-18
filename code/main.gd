@@ -5,12 +5,13 @@ extends Node2D
 @onready var modelFile	:Node = $ModelFile
 
 func _ready() -> void:
+	
 	# 监听信号, 当 splash 动画播放完毕之后的处理
-	splash.connect("splashAnimatedFinish", splashAnimatedFinish)
+	splash.connect(MyConstant.SignalName.SPLASH_ANIMATED_FINISH, splashAnimatedFinish)
 	# 监听信号, 当 接收到退出程序的信号时
-	mainMenu.connect("exitProgress", exitProgress)
+	mainMenu.connect(MyConstant.SignalMethod.EXIT_PROGRESS, exitProgress)
 	# 监听信号, 当 接收到重命名的信号时
-	modelFile.connect("setRename", setRename)
+	modelFile.connect(MyConstant.SignalMethod.SET_RENAME, setRename)
 	pass
  
 # splash 动画播放完毕之后的回调

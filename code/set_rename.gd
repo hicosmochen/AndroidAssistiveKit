@@ -8,10 +8,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# 获取当前系统缓存的重命名信息
-	var modelFileNode = get_node("/root/Main/ModelFile")
-	if modelFileNode and modelFileNode.has_method("getFileParamPrefix"):
+	var modelFileNode = get_node(MyConstant.NodeRoute.MODEL_FILE)
+	if modelFileNode and modelFileNode.has_method(MyConstant.SignalMethod.GET_FILE_PARAM_PREFIX):
 		lineEditPrefix.text = modelFileNode.getFileParamPrefix()
-	if modelFileNode and modelFileNode.has_method("getFileParamDeigits"):
+	if modelFileNode and modelFileNode.has_method(MyConstant.SignalMethod.GET_FILE_PARAM_DEIGITS):
 		lineEditDeigits.text = str(modelFileNode.getFileParamDeigits())
 	
 	# 设置光标闪烁
@@ -34,9 +34,10 @@ func clickButtonConfirm():
 	MyUtil.sendMessageToArea("重命名的前缀是: "+ str(prefix))
 	MyUtil.sendMessageToArea("重命名的位数是: "+ str(deigits))
 	# 需要将数据发送到组中 
-	get_tree().call_group("show_file_param","filePrefixChange",prefix)
-	get_tree().call_group("show_file_param","fileDeigitsChange",int(deigits))
-	get_tree().call_group("show_file_param", "filePathChange", MyUtil.get_data("file_dir_path"))
+	var filePath = MyUtil.get_data(MyConstant.SettingKey.FILE_DIR_PATH)
+	get_tree().call_group(MyConstant.SignalName.SHOW_FILE_PARAM, MyConstant.SignalMethod.FILE_PREFIX_CHANGE,prefix)
+	get_tree().call_group(MyConstant.SignalName.SHOW_FILE_PARAM, MyConstant.SignalMethod.FILE_DEIGITS_CHANGE,int(deigits))
+	get_tree().call_group(MyConstant.SignalName.SHOW_FILE_PARAM, MyConstant.SignalMethod.FILE_PATH_CHANGE, filePath)
 	# 将当前的场景, 清理掉
 	self.queue_free()
 	pass

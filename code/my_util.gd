@@ -20,8 +20,8 @@ func resetButtonPressedStatus(button: Button):
 # 打开文件浏览器对话框 	file_dialog.dir_selected.connect(menthodName) # 连接信号  
 func open_file_folder(defaultPath:String) -> FileDialog:
 	# 创建 FileDialog   
-	var file_dialog = FileDialog.new()   
-	file_dialog.file_mode = FileDialog.FILE_MODE_OPEN_DIR  # 设置为目录选择模式    
+	var file_dialog = FileDialog.new()
+	file_dialog.file_mode = FileDialog.FILE_MODE_OPEN_DIR  # 设置为目录选择模式
 	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	# 使用原生本地的对话框样式
 	file_dialog.use_native_dialog = true
@@ -91,10 +91,10 @@ func batch_rename(directory_path: String, prefix: String = "file_", digits: int 
 # 发送信息给展示区域
 func sendMessageToArea(message: String):
 	# 直接向组里面发送数据
-	get_tree().call_group("show_control","showControl",message)
+	get_tree().call_group(MyConstant.SignalName.SHOW_CONTROL, MyConstant.SignalMethod.SHOW_CONTROL,  message)
 	pass
 
 # 发送清理系统日志给展示区域
 func clearMessageToArea():
-	get_tree().call_group("show_control","clearControl")
+	get_tree().call_group(MyConstant.SignalName.SHOW_CONTROL, MyConstant.SignalMethod.CLEAR_CONTROL)
 	pass

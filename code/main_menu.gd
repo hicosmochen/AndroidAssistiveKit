@@ -101,7 +101,7 @@ func clickGroupMenu(id: int):
 # 菜单的点击事件 
 func _open_work_path_dialog():
 	print("选择工作路径..")
-	var dirPath = MyUtil.get_data("file_dir_path")
+	var dirPath = MyUtil.get_data(MyConstant.SettingKey.FILE_DIR_PATH)
 	# 打开路径
 	var fileDialog = MyUtil.open_file_folder(dirPath)
 	# 关联信号
@@ -112,7 +112,7 @@ func _open_work_path_dialog():
 # 选择的文件路径
 func dir_selected(path: String):
 	print("当前选择的路径: " , path)
-	MyUtil.set_data("file_dir_path", path)
+	MyUtil.set_data(MyConstant.SettingKey.FILE_DIR_PATH, path)
 	MyUtil.sendMessageToArea("当前工作路径 " + path)
 	# 需要修改底部的路径地址
 	currentPathLabel.text = "当前工作路径 " + path

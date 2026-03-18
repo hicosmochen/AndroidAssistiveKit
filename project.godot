@@ -18,6 +18,7 @@ config/icon="uid://iww3d45w6e5g"
 [autoload]
 
 MyUtil="*uid://dka2a4ixebaqx"
+MyConstant="*uid://vhgiisifkqyw"
 
 [display]
 

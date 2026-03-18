@@ -17,7 +17,7 @@ var fileParam = {
 
 func _ready() -> void:
 	# 监听信号
-	add_to_group("show_file_param")
+	add_to_group(MyConstant.SignalName.SHOW_FILE_PARAM)
 	# 设置按钮的点击事件
 	button_rename_set.connect("button_down", clickButtonRenameSet)
 	button_rename_start.connect("button_down", clickButtonRenameStart)
@@ -59,7 +59,7 @@ func clickButtonRenameStart():
 	var filePath = str(fileParam.get("filePath"))
 	var prefix = str(fileParam.get("prefix"))
 	var deigits = str(fileParam.get("deigits"))
-	var workspacePath = MyUtil.get_data("file_dir_path")
+	var workspacePath = MyUtil.get_data(MyConstant.SettingKey.FILE_DIR_PATH)
 	# 校验场景是否正确
 	if filePath.is_empty():
 		if workspacePath.is_empty():
