@@ -110,6 +110,7 @@ func _open_work_path_dialog():
 func dir_selected(path: String):
 	print("当前选择的路径: " , path)
 	MyUtil.set_data("file_dir_path", path)
+	MyUtil.sendMessageToArea("当前工作路径 " + path)
 	# 需要修改底部的路径地址
 	currentPathLabel.text = "当前工作路径 " + path
 	pass

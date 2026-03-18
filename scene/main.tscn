@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rsm1nc0o5cb4" path="res://scene/splash.tscn" id="2_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://bqasntqlcphah" path="res://scene/main_menu.tscn" id="3_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://5satwnucl1os" path="res://scene/model_file.tscn" id="4_brvut"]
+[ext_resource type="PackedScene" uid="uid://bji0o742uwuil" path="res://scene/show_control.tscn" id="5_0ha60"]
 
 [node name="Main" type="Node2D" unique_id=2112832231]
 script = ExtResource("1_mjuaj")
@@ -13,3 +14,5 @@ script = ExtResource("1_mjuaj")
 [node name="MainMenu" parent="." unique_id=730619768 instance=ExtResource("3_wp4xf")]
 
 [node name="ModelFile" parent="." unique_id=26493553 instance=ExtResource("4_brvut")]
+
+[node name="ShowControl" parent="." unique_id=609825675 instance=ExtResource("5_0ha60")]

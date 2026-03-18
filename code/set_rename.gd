@@ -18,7 +18,8 @@ func clickButtonConfirm():
 	# 获取文件的命名前缀
 	var prefix = lineEditPrefix.text
 	var deigits = lineEditDeigits.text
-	print("继续操作: ", prefix, deigits)
+	MyUtil.sendMessageToArea("重命名的前缀是: "+ str(prefix))
+	MyUtil.sendMessageToArea("重命名的位数是: "+ str(deigits))
 	# 需要将数据发送到组中 
 	get_tree().call_group("show_file_param","filePrefixChange",prefix)
 	get_tree().call_group("show_file_param","fileDeigitsChange",deigits)

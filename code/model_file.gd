@@ -53,10 +53,10 @@ func clickButtonRenameStart():
 	var deigits = str(fileParam.get("deigits"))
 	# 校验场景是否正确
 	if filePath.is_empty():
-		print("路径不能为空")
+		MyUtil.sendMessageToArea("路径不能为空")
 	elif prefix.is_empty():
-		print("前缀不能为空")
+		MyUtil.sendMessageToArea("前缀不能为空")
 	else:
+		MyUtil.sendMessageToArea("进行批量重命名")
 		MyUtil.batch_rename(filePath, prefix, int(deigits))
-		print("进行批量重命名")
 	pass

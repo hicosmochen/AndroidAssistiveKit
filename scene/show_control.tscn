@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bji0o742uwuil"]
+
+[ext_resource type="Script" uid="uid://b8dnc0ggpswh8" path="res://code/show_control.gd" id="1_ct76i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jcq6"]
+bg_color = Color(0.18215623, 0.18215626, 0.18215615, 1)
+
+[node name="ShowControl" type="Node2D" unique_id=609825675]
+script = ExtResource("1_ct76i")
+
+[node name="Panel" type="Panel" parent="." unique_id=1390908665]
+offset_left = 960.0
+offset_top = 60.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jcq6")
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=95570614]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1020.0
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+metadata/_edit_lock_ = true
