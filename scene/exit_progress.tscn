@@ -28,13 +28,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_whfoq")
 
 [node name="Label" type="Label" parent="Panel" unique_id=1823155577]
 layout_mode = 0
-offset_left = 182.0
-offset_top = 111.0
-offset_right = 518.0
-offset_bottom = 178.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 386.0
+offset_bottom = 117.0
 theme_override_colors/font_color = Color(0.091632105, 0.091632105, 0.091632105, 1)
-theme_override_font_sizes/font_size = 48
-text = "您确认退出吗？"
+theme_override_font_sizes/font_size = 32
 
 [node name="Button_cancel" type="Button" parent="Panel" unique_id=264711248]
 layout_mode = 0
@@ -46,8 +45,7 @@ scale = Vector2(0.8, 0.8)
 theme_override_colors/font_color = Color(0.70963067, 0.70963126, 0.7096309, 1)
 theme_override_colors/icon_pressed_color = Color(0.76058465, 0.7532723, 0.8662796, 1)
 theme_override_colors/icon_hover_color = Color(0.8235294, 0.81960785, 0.9019608, 1)
-theme_override_font_sizes/font_size = 48
-text = "取消"
+theme_override_font_sizes/font_size = 36
 icon = ExtResource("1_v4n58")
 flat = true
 icon_alignment = 1
@@ -61,8 +59,7 @@ offset_bottom = 406.99997
 scale = Vector2(0.8, 0.8)
 theme_override_colors/icon_pressed_color = Color(0.08164752, 0.5510907, 0.10982052, 1)
 theme_override_colors/icon_hover_color = Color(0.10701827, 0.6981298, 0.14030603, 1)
-theme_override_font_sizes/font_size = 48
-text = "确定"
+theme_override_font_sizes/font_size = 36
 icon = ExtResource("2_so8jh")
 flat = true
 icon_alignment = 1

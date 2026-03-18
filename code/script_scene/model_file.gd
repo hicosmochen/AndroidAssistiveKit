@@ -16,6 +16,14 @@ var fileParam = {
 }
 
 func _ready() -> void:
+	# 设置文本
+	button_rename_set.text = MyContext.getString(MyString.RENAME_SETTING)
+	button_rename_start.text = MyContext.getString(MyString.RENAME_STARTS)
+	button_operator_01.text = MyContext.getString(MyString.ALL_COMPRESSED)
+	button_operator_02.text = MyContext.getString(MyString.UNZIP_ALL)
+	button_operator_03.text = MyContext.getString(MyString.FIND_FILES)
+	
+	
 	# 监听信号
 	add_to_group(MyConstant.SignalName.SHOW_FILE_PARAM)
 	# 设置按钮的点击事件
@@ -63,15 +71,15 @@ func clickButtonRenameStart():
 	# 校验场景是否正确
 	if filePath.is_empty():
 		if workspacePath.is_empty():
-			MyUtil.sendMessageToArea("路径不能为空")
+			MyUtil.sendMessageToArea(MyContext.getString(MyString.THE_PATH_CANNOT_BE_EMPTY))
 			return
 		else:
 			filePath = workspacePath
 	if filePath.is_empty():
-		MyUtil.sendMessageToArea("路径不能为空")
+		MyUtil.sendMessageToArea(MyContext.getString(MyString.THE_PATH_CANNOT_BE_EMPTY))
 	elif prefix.is_empty():
-		MyUtil.sendMessageToArea("前缀不能为空")
+		MyUtil.sendMessageToArea(MyContext.getString(MyString.THE_PREFIX_CANNOT_BE_EMPTY))
 	else:
-		MyUtil.sendMessageToArea("进行批量重命名")
+		MyUtil.sendMessageToArea(MyContext.getString(MyString.BATCH_RENAME))
 		MyUtil.batch_rename(filePath, prefix, int(deigits))
 	pass

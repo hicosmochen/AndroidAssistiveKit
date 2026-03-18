@@ -13,12 +13,16 @@ config_version=5
 config/name="安卓辅助套件"
 run/main_scene="uid://bmb5mar5xwy8j"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/low_processor_mode=true
 config/icon="uid://iww3d45w6e5g"
 
 [autoload]
 
 MyUtil="*uid://dka2a4ixebaqx"
 MyConstant="*uid://vhgiisifkqyw"
+MyString="*uid://e8xkepxvqep2"
+MyContext="*uid://blylt8xi6t5k3"
+MyLanague="*uid://0imedpfsk76j"
 
 [display]
 

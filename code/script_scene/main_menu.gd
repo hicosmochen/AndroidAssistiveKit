@@ -35,35 +35,35 @@ func _ready() -> void:
 func create_menu():
 	# 创建主菜单 设置
 	var menu_main_setting = MenuButton.new()
-	menu_main_setting.text = "设置"
+	menu_main_setting.text = MyContext.getString(MyString.SETTING)
 	menu_main_setting.position = Vector2(0, 0)
 	
-	# 添加主菜单 设置的子选项菜单
+	# 添加主菜单 设置的子选项菜单 MyString.WORK_SPACE
 	var menu_group_setting = menu_main_setting.get_popup()
-	menu_group_setting.add_item("工作路径", MENU_GROUP_SETTING_PATH)
-	menu_group_setting.add_item("清除日志", MENU_GROUP_SETTING_CLEAR)
-	menu_group_setting.add_item("退出", MENU_GROUP_SETTING_EXIT)
+	menu_group_setting.add_item(MyContext.getString(MyString.WORK_SPACE), MENU_GROUP_SETTING_PATH)
+	menu_group_setting.add_item(MyContext.getString(MyString.CLEAR_LOG), MENU_GROUP_SETTING_CLEAR)
+	menu_group_setting.add_item(MyContext.getString(MyString.EXIT), MENU_GROUP_SETTING_EXIT)
 	
 	# 创建主菜单 模块
 	var menu_main_module = MenuButton.new()
-	menu_main_module.text = "模块"
-	menu_main_module.position = Vector2(100, 0)
+	menu_main_module.text = MyContext.getString(MyString.MODEL)
+	menu_main_module.position = Vector2(150, 0)
 	
 	# 添加主菜单 模块的子选项菜单
 	var menu_group_module = menu_main_module.get_popup()
-	menu_group_module.add_item("安卓脚本", MENU_GROUP_MODULE_ANDROID)
-	menu_group_module.add_item("文件脚本", MENU_GROUP_MODULE_FILE)
+	menu_group_module.add_item(MyContext.getString(MyString.ANDROID_SCRIPT), MENU_GROUP_MODULE_ANDROID)
+	menu_group_module.add_item(MyContext.getString(MyString.FILE_SCRIPT), MENU_GROUP_MODULE_FILE)
 	
 	# 创建主菜单 模块
 	var menu_main_about = MenuButton.new()
-	menu_main_about.text = "关于"
-	menu_main_about.position = Vector2(200, 0)
+	menu_main_about.text = MyContext.getString(MyString.ABOUT)
+	menu_main_about.position = Vector2(300, 0)
 
 	# 添加主菜单 模块的子选项菜单
 	var menu_group_about = menu_main_about.get_popup()
-	menu_group_about.add_item("软件版本", MENU_GROUP_ABOUT_VERSION)
-	menu_group_about.add_item("帮助文档", MENU_GROUP_ABOUT_DOCUMENT)
-	menu_group_about.add_item("联系作者", MENU_GROUP_ABOUT_AUTHOR)
+	menu_group_about.add_item(MyContext.getString(MyString.SOFTWARE_VERSION), MENU_GROUP_ABOUT_VERSION)
+	menu_group_about.add_item(MyContext.getString(MyString.HELP_DOCUMENTATION), MENU_GROUP_ABOUT_DOCUMENT)
+	menu_group_about.add_item(MyContext.getString(MyString.CONTACT_THE_AUTHOR), MENU_GROUP_ABOUT_AUTHOR)
 	
 	add_child(menu_main_setting)
 	add_child(menu_main_module)
@@ -113,9 +113,9 @@ func _open_work_path_dialog():
 func dir_selected(path: String):
 	print("当前选择的路径: " , path)
 	MyUtil.set_data(MyConstant.SettingKey.FILE_DIR_PATH, path)
-	MyUtil.sendMessageToArea("当前工作路径 " + path)
+	MyUtil.sendMessageToArea(MyContext.getString(MyString.CURRENT_WORK_SPACE) + path)
 	# 需要修改底部的路径地址
-	currentPathLabel.text = "当前工作路径 " + path
+	currentPathLabel.text = MyContext.getString(MyString.CURRENT_WORK_SPACE) + path
 	pass
 
 # 清理系统日志
