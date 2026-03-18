@@ -20,8 +20,9 @@ func clickButtonConfirm():
 	var deigits = lineEditDeigits.text
 	print("继续操作: ", prefix, deigits)
 	# 需要将数据发送到组中 
-	get_tree().call_group("show_param","filePrefixChange",prefix)
-	get_tree().call_group("show_param","fileDeigitsChange",deigits)
+	get_tree().call_group("show_file_param","filePrefixChange",prefix)
+	get_tree().call_group("show_file_param","fileDeigitsChange",deigits)
+	get_tree().call_group("show_file_param", "filePathChange", MyUtil.get_data("file_dir_path"))
 	# 将当前的场景, 清理掉
 	self.queue_free()
 	pass
