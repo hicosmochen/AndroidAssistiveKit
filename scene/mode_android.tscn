@@ -1,28 +1,28 @@
-[gd_scene format=3 uid="uid://5satwnucl1os"]
+[gd_scene format=3 uid="uid://bg64ui06enolu"]
 
-[ext_resource type="Texture2D" uid="uid://dnundvf0x6wm3" path="res://resource/drawable/button/button_background_item.png" id="1_5snhq"]
-[ext_resource type="Script" uid="uid://du768cdnbmm17" path="res://code/script_scene/model_file.gd" id="1_egrpi"]
+[ext_resource type="Texture2D" uid="uid://dnundvf0x6wm3" path="res://resource/drawable/button/button_background_item.png" id="1_cedh3"]
+[ext_resource type="Script" uid="uid://dtuocqs1wl16h" path="res://code/script_scene/mode_android.gd" id="1_hxoy3"]
 
-[node name="ModelFile" type="Node2D" unique_id=26493553]
-script = ExtResource("1_egrpi")
+[node name="ModeAndroid" type="Node2D" unique_id=1839185124]
+script = ExtResource("1_hxoy3")
 
-[node name="Panel" type="Panel" parent="." unique_id=170682948]
+[node name="Panel" type="Panel" parent="." unique_id=317811693]
 offset_top = 60.0
 offset_right = 960.0
 offset_bottom = 1080.0
 
-[node name="Button_01" type="Button" parent="Panel" unique_id=1559029180]
+[node name="Button_01" type="Button" parent="Panel" unique_id=1644381627]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
 theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
 theme_override_font_sizes/font_size = 24
-icon = ExtResource("1_5snhq")
+icon = ExtResource("1_cedh3")
 flat = true
 icon_alignment = 1
 
-[node name="Button_02" type="Button" parent="Panel" unique_id=1244710699]
+[node name="Button_02" type="Button" parent="Panel" unique_id=757648870]
 layout_mode = 0
 offset_top = 94.0
 offset_right = 220.0
@@ -30,11 +30,11 @@ offset_bottom = 200.0
 theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
 theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
 theme_override_font_sizes/font_size = 24
-icon = ExtResource("1_5snhq")
+icon = ExtResource("1_cedh3")
 flat = true
 icon_alignment = 1
 
-[node name="Button_03" type="Button" parent="Panel" unique_id=1935502348]
+[node name="Button_03" type="Button" parent="Panel" unique_id=1484437220]
 layout_mode = 0
 offset_top = 188.0
 offset_right = 220.0
@@ -42,11 +42,11 @@ offset_bottom = 294.0
 theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
 theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
 theme_override_font_sizes/font_size = 24
-icon = ExtResource("1_5snhq")
+icon = ExtResource("1_cedh3")
 flat = true
 icon_alignment = 1
 
-[node name="Button_04" type="Button" parent="Panel" unique_id=1576900717]
+[node name="Button_04" type="Button" parent="Panel" unique_id=2004633663]
 layout_mode = 0
 offset_top = 282.0
 offset_right = 220.0
@@ -54,11 +54,11 @@ offset_bottom = 388.0
 theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
 theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
 theme_override_font_sizes/font_size = 24
-icon = ExtResource("1_5snhq")
+icon = ExtResource("1_cedh3")
 flat = true
 icon_alignment = 1
 
-[node name="Button_05" type="Button" parent="Panel" unique_id=235305234]
+[node name="Button_05" type="Button" parent="Panel" unique_id=641012801]
 layout_mode = 0
 offset_top = 376.0
 offset_right = 220.0
@@ -66,6 +66,6 @@ offset_bottom = 482.0
 theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
 theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
 theme_override_font_sizes/font_size = 24
-icon = ExtResource("1_5snhq")
+icon = ExtResource("1_cedh3")
 flat = true
 icon_alignment = 1

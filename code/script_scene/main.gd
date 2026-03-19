@@ -53,6 +53,15 @@ func dialog_exit_progress():
 # 开启安卓脚本
 func open_module_android_script():
 	print("开启安卓脚本")
+	# 如果当前侧边场景存在, 则移除当前场景
+	if current_scene_mode:
+		current_scene_mode.queue_free()
+	# 创建当前的场景
+	current_scene_mode = load("res://scene/mode_android.tscn").instantiate()
+	# 设置当前场景的名称 (用于后续信号查找到指定的场景信息)
+	current_scene_mode.name = MyConstant.NodeName.MODEL_ANDROID
+	# 添加场景到主场景中
+	add_child(current_scene_mode)
 	pass
 
 # 开启文件脚本

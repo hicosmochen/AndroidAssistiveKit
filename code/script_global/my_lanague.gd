@@ -51,6 +51,11 @@ class ZH extends Lanague:
 	static var OPERATION_FAILED							: String  = "操作失败"
 	static var LANAGUAGE_CHINESE						: String  = "简体中文"
 	static var LANAGUAGE_ENGLISH						: String  = "英文"
+	static var ADB_ROOT									: String  = "授权"
+	static var ADB_REMOUNT								: String  = "挂载"
+	static var ADB_REBOOT								: String  = "重启"
+	static var ADB_MODE_DAY								: String  = "日间模式"
+	static var ADB_MODE_NIGHT							: String  = "夜间模式"
 	pass
 
 class EN extends Lanague:
@@ -101,4 +106,9 @@ class EN extends Lanague:
 	static var OPERATION_FAILED							: String  = "operation failed"
 	static var LANAGUAGE_CHINESE						: String  = "chinese"
 	static var LANAGUAGE_ENGLISH						: String  = "english"
+	static var ADB_ROOT									: String  = "root"
+	static var ADB_REMOUNT								: String  = "remount"
+	static var ADB_REBOOT								: String  = "reboot"
+	static var ADB_MODE_DAY								: String  = "day mode"
+	static var ADB_MODE_NIGHT							: String  = "night mode"
 	pass

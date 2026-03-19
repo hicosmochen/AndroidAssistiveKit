@@ -32,11 +32,13 @@ class SignalName:
 # 节点路由
 class NodeRoute:
 	static var MODEL_FILE							: String = "/root/Main/" + NodeName.MODEL_FILE
+	static var MODEL_ANDROID						: String = "/root/Main/" + NodeName.MODEL_ANDROID
 	pass
 
 # 场景节点的名称
 class NodeName:
 	static var MODEL_FILE							: String = "ModelFile"
+	static var MODEL_ANDROID						: String = "ModelAndroid"
 	pass
 
 
