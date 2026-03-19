@@ -10,6 +10,7 @@
 script = ExtResource("1_mjuaj")
 
 [node name="Splash" parent="." unique_id=1829903032 instance=ExtResource("2_v0l8b")]
+top_level = true
 
 [node name="MainMenu" parent="." unique_id=730619768 instance=ExtResource("3_wp4xf")]
 

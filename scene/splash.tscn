@@ -137,6 +137,11 @@ animations = [{
 [node name="Splash" type="Node2D" unique_id=1829903032]
 script = ExtResource("1_0ghnj")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=847524716]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.40392157, 0.40392157, 0.40392157, 1)
+
 [node name="Splash_AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=930057311]
 position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_ptmfj")
