@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://dj4q20tve66hv"]
 
+[ext_resource type="Script" uid="uid://dm0lwmqj4d0hg" path="res://code/script_scene/about_author.gd" id="1_0g5gi"]
+[ext_resource type="Texture2D" uid="uid://d36n753rfjva8" path="res://resource/drawable/icon/connect_qr_code.png" id="1_qwq7d"]
+
 [node name="AboutAuthor" type="Node2D" unique_id=836165946]
+script = ExtResource("1_0g5gi")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=330604499]
 offset_top = 60.0
@@ -8,13 +12,26 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="ColorRect" unique_id=574956717]
+[node name="Label_title" type="Label" parent="ColorRect" unique_id=574956717]
 layout_mode = 0
-offset_top = 300.0
+offset_top = 100.0
 offset_right = 1920.0
-offset_bottom = 500.0
+offset_bottom = 300.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
-text = "关于作者"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label_email" type="Label" parent="ColorRect" unique_id=4759117]
+layout_mode = 0
+offset_top = 250.0
+offset_right = 1920.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=1624625490]
+position = Vector2(960, 663)
+texture = ExtResource("1_qwq7d")
