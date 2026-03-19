@@ -6,7 +6,7 @@ extends Node2D
 @onready var button_operator_02 	: Button = $Panel/Button_04
 @onready var button_operator_03 	: Button = $Panel/Button_05
 
-signal setRename()
+signal dialog_set_rename()
 
 # 创建字典, 保存需要的数据
 var fileParam = {
@@ -57,7 +57,7 @@ func getFileParamDeigits() -> int:
 # 设置重命名
 func clickButtonRenameSet():
 	print("设置重命名...")
-	emit_signal("setRename")
+	emit_signal("dialog_set_rename")
 	pass
 
 # 开始重命名

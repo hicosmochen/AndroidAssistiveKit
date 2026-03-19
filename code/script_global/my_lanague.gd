@@ -44,6 +44,7 @@ class ZH extends Lanague:
 	static var ERROR_UNABLE_TO_OPEN_DIRECTORY			: String  = "错误: 无法打开目录"
 	static var ERROR_UNABLE_TO_RENAME					: String  = "错误: 无法重命名"
 	static var ERROR_CODE								: String  = "错误代码:"
+	static var ARE_YOU_SURE_YOU_WANT_TO_CLEAR_THE_LOGS	: String  = "您确认清除日志吗?"
 	pass
 
 class EN extends Lanague:
@@ -87,4 +88,5 @@ class EN extends Lanague:
 	static var ERROR_UNABLE_TO_OPEN_DIRECTORY			: String  = "Error: Unable to open directory"
 	static var ERROR_UNABLE_TO_RENAME					: String  = "Error: Unable to rename"
 	static var ERROR_CODE								: String  = "Error code:"
+	static var ARE_YOU_SURE_YOU_WANT_TO_CLEAR_THE_LOGS	: String  = "Are you sure you want to clear the logs?"
 	pass

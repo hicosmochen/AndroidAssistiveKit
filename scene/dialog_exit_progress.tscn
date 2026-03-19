@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tj6l8lfvma7h"]
 
-[ext_resource type="Script" uid="uid://d2ohp7cexwma6" path="res://code/script_scene/exit_progress.gd" id="1_k2xyq"]
+[ext_resource type="Script" uid="uid://d2ohp7cexwma6" path="res://code/script_dialog/dialog_exit_progress.gd" id="1_k2xyq"]
 [ext_resource type="Texture2D" uid="uid://wry0tic8dxw3" path="res://resource/drawable/button/button_background_cancel.png" id="1_v4n58"]
 [ext_resource type="Texture2D" uid="uid://duw8fuahfm0qp" path="res://resource/drawable/button/button_background_confirm.png" id="2_so8jh"]
 
@@ -11,7 +11,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="ExitProgress" type="Node2D" unique_id=825694170]
+[node name="DialogExitProgress" type="Node2D" unique_id=825694170]
 script = ExtResource("1_k2xyq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=51083951]

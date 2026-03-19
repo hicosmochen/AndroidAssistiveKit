@@ -3,27 +3,28 @@ extends Node2D
 @onready var currentPathLabel = $ColorRect/Label_path
 
 var MENU_GROUP_SETTING_PATH 		: int = 1001
-var MENU_GROUP_SETTING_CLEAR 	: int = 1002
+var MENU_GROUP_SETTING_CLEAR 		: int = 1002
 var MENU_GROUP_SETTING_EXIT 		: int = 1003
-var MENU_GROUP_MODULE_ANDROID 	: int = 2001
-var MENU_GROUP_MODULE_FILE 		: int = 2002
-var MENU_GROUP_ABOUT_VERSION 	: int = 3001
-var MENU_GROUP_ABOUT_DOCUMENT 	: int = 3002
+var MENU_GROUP_MODULE_ANDROID 		: int = 2001
+var MENU_GROUP_MODULE_FILE 			: int = 2002
+var MENU_GROUP_ABOUT_VERSION 		: int = 3001
+var MENU_GROUP_ABOUT_DOCUMENT 		: int = 3002
 var MENU_GROUP_ABOUT_AUTHOR 		: int = 3003
 
 # 定义信号
-signal exitProgress()
+signal dialog_exit_progress()
+signal dialog_clear_system_log()
 
 # 使用字典映射处理函数   
 var menu_handlers = {   
-	MENU_GROUP_SETTING_PATH		: "_open_work_path_dialog", 
+	MENU_GROUP_SETTING_PATH			: "_open_work_path_dialog", 
 	MENU_GROUP_SETTING_CLEAR		: "_clear_system_log",  
-	MENU_GROUP_SETTING_EXIT		: "_quit_application",   
-	MENU_GROUP_MODULE_ANDROID	: "_open_android_script_module",   
-	MENU_GROUP_MODULE_FILE		: "_open_file_script_module",   
+	MENU_GROUP_SETTING_EXIT			: "_quit_application",   
+	MENU_GROUP_MODULE_ANDROID		: "_open_android_script_module",   
+	MENU_GROUP_MODULE_FILE			: "_open_file_script_module",   
 	MENU_GROUP_ABOUT_VERSION		: "_show_version_info",   
-	MENU_GROUP_ABOUT_DOCUMENT	: "_open_help_document",   
-	MENU_GROUP_ABOUT_AUTHOR		: "_contact_author"   
+	MENU_GROUP_ABOUT_DOCUMENT		: "_open_help_document",   
+	MENU_GROUP_ABOUT_AUTHOR			: "_contact_author"   
 }
 
 func _ready() -> void:
@@ -121,13 +122,13 @@ func dir_selected(path: String):
 # 清理系统日志
 func _clear_system_log():
 	print("清理系统日志")
-	MyUtil.clearMessageToArea()
+	emit_signal("dialog_clear_system_log")
 	pass
 
 # 菜单的点击事件 
 func _quit_application():
 	print("退出程序..")
-	emit_signal("exitProgress")
+	emit_signal("dialog_exit_progress")
 	pass
 	
 # 菜单的点击事件 
