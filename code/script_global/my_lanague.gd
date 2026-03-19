@@ -7,6 +7,7 @@ class ZH extends Lanague:
 	static var SETTING 									: String = "设置"
 	static var WORK_SPACE 								: String = "工作路径"
 	static var CLEAR_LOG 								: String  = "清除日志"
+	static var SAVE_LOG 								: String  = "保存日志"
 	static var EXIT 									: String  = "退出"
 	static var MODEL 									: String  = "模块"
 	static var ANDROID_SCRIPT 							: String  = "安卓脚本"
@@ -45,12 +46,15 @@ class ZH extends Lanague:
 	static var ERROR_UNABLE_TO_RENAME					: String  = "错误: 无法重命名"
 	static var ERROR_CODE								: String  = "错误代码:"
 	static var ARE_YOU_SURE_YOU_WANT_TO_CLEAR_THE_LOGS	: String  = "您确认清除日志吗?"
+	static var OPERATION_SUCCESS						: String  = "操作成功"
+	static var OPERATION_FAILED							: String  = "操作失败"
 	pass
 
 class EN extends Lanague:
 	static var SETTING 									: String = "setting"
 	static var WORK_SPACE 								: String = "work space"
 	static var CLEAR_LOG 								: String  = "clear log"
+	static var SAVE_LOG 								: String  = "save log"
 	static var EXIT 									: String  = "exit"
 	static var MODEL 									: String  = "model"
 	static var ANDROID_SCRIPT 							: String  = "android script"
@@ -89,4 +93,6 @@ class EN extends Lanague:
 	static var ERROR_UNABLE_TO_RENAME					: String  = "Error: Unable to rename"
 	static var ERROR_CODE								: String  = "Error code:"
 	static var ARE_YOU_SURE_YOU_WANT_TO_CLEAR_THE_LOGS	: String  = "Are you sure you want to clear the logs?"
+	static var OPERATION_SUCCESS						: String  = "operation success"
+	static var OPERATION_FAILED							: String  = "operation failed"
 	pass

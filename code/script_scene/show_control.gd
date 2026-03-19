@@ -25,6 +25,16 @@ func clear_control():
 	builder.clear()
 	control_label.text = ""
 	pass
+	
+# 缓存内容
+func save_control():
+	var dirPath = MyUtil.get_data(MyConstant.SettingKey.FILE_DIR_PATH)
+	if dirPath.is_empty():
+		MyUtil.sendMessageToArea(MyContext.getString(MyString.THE_PATH_CANNOT_BE_EMPTY))
+		return
+	var fileName = "systemLog_" + current_time() + ".txt"
+	MyUtil.write_string_to_file(dirPath, fileName, "".join(builder))
+	pass
 
 func current_time() -> String:
 	var timeBuilder = PackedStringArray()

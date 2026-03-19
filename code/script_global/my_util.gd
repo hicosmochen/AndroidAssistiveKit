@@ -84,6 +84,19 @@ func batch_rename(directory_path: String, prefix: String = "file_", digits: int 
 	sendMessageToArea((MyContext.getString(MyString.PROCESSED_IN_TOTAL) + " %d " + MyContext.getString(MyString.FILES) ) % (count - 1))
 	pass
 	
+# 将字符串写入到文件中
+func write_string_to_file(directory_path: String, file_name: String, message: String) -> void:
+	# 使用协程的方式写入数据
+	var path = directory_path + "//" + file_name
+	await get_tree().process_frame
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	if file != null:
+		file.store_string(message)
+		file.close()
+		sendMessageToArea(MyContext.getString(MyString.OPERATION_SUCCESS))
+	else:
+		sendMessageToArea(MyContext.getString(MyString.OPERATION_FAILED))
+	pass
 
 # 发送信息给展示区域
 func sendMessageToArea(message: String):
@@ -94,4 +107,10 @@ func sendMessageToArea(message: String):
 # 发送清理系统日志给展示区域
 func clearMessageToArea():
 	get_tree().call_group(MyConstant.SignalName.SHOW_CONTROL, MyConstant.SignalMethod.CLEAR_CONTROL)
+	pass
+
+# 缓存系统日志到文件中
+func saveMessageToFile():
+	# 直接向组里面发送数据
+	get_tree().call_group(MyConstant.SignalName.SHOW_CONTROL, MyConstant.SignalMethod.SAVE_CONTROL)
 	pass

@@ -3,10 +3,12 @@ extends Node
 # 信号关联的方法
 class SignalMethod:
 	static var SPLASH_ANIMATED_FINISH 				: String = "splashAnimatedFinish"
-	static var DIALOG_EXIT_PROGRESS 				: String = "dialog_exit_progress"
-	static var DIALOG_SET_RENAME 					: String = "dialog_set_rename"
 	static var SHOW_CONTROL 						: String = "show_control"
 	static var CLEAR_CONTROL						: String = "clear_control"
+	static var SAVE_CONTROL							: String = "save_control"
+	
+	static var DIALOG_EXIT_PROGRESS 				: String = "dialog_exit_progress"
+	static var DIALOG_SET_RENAME 					: String = "dialog_set_rename"
 	static var DIALOG_CLEAR_SYSTEM_LOG				: String = "dialog_clear_system_log"
 	
 	static var GET_FILE_PARAM_PREFIX				: String = "getFileParamPrefix"

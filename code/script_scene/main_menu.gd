@@ -2,14 +2,15 @@ extends Node2D
 
 @onready var currentPathLabel = $ColorRect/Label_path
 
-var MENU_GROUP_SETTING_PATH 		: int = 1001
-var MENU_GROUP_SETTING_CLEAR 		: int = 1002
-var MENU_GROUP_SETTING_EXIT 		: int = 1003
-var MENU_GROUP_MODULE_ANDROID 		: int = 2001
-var MENU_GROUP_MODULE_FILE 			: int = 2002
-var MENU_GROUP_ABOUT_VERSION 		: int = 3001
-var MENU_GROUP_ABOUT_DOCUMENT 		: int = 3002
-var MENU_GROUP_ABOUT_AUTHOR 		: int = 3003
+var MENU_GROUP_SETTING_PATH 			: int = 1001
+var MENU_GROUP_SETTING_CLEAR_LOG 		: int = 1002
+var MENU_GROUP_SETTING_SAVE_LOG 		: int = 1003
+var MENU_GROUP_SETTING_EXIT 			: int = 1004
+var MENU_GROUP_MODULE_ANDROID 			: int = 2001
+var MENU_GROUP_MODULE_FILE 				: int = 2002
+var MENU_GROUP_ABOUT_VERSION 			: int = 3001
+var MENU_GROUP_ABOUT_DOCUMENT 			: int = 3002
+var MENU_GROUP_ABOUT_AUTHOR 			: int = 3003
 
 # 定义信号
 signal dialog_exit_progress()
@@ -17,14 +18,15 @@ signal dialog_clear_system_log()
 
 # 使用字典映射处理函数   
 var menu_handlers = {   
-	MENU_GROUP_SETTING_PATH			: "_open_work_path_dialog", 
-	MENU_GROUP_SETTING_CLEAR		: "_clear_system_log",  
-	MENU_GROUP_SETTING_EXIT			: "_quit_application",   
-	MENU_GROUP_MODULE_ANDROID		: "_open_android_script_module",   
-	MENU_GROUP_MODULE_FILE			: "_open_file_script_module",   
-	MENU_GROUP_ABOUT_VERSION		: "_show_version_info",   
-	MENU_GROUP_ABOUT_DOCUMENT		: "_open_help_document",   
-	MENU_GROUP_ABOUT_AUTHOR			: "_contact_author"   
+	MENU_GROUP_SETTING_PATH				: "_open_work_path_dialog", 
+	MENU_GROUP_SETTING_CLEAR_LOG		: "_clear_system_log",  
+	MENU_GROUP_SETTING_SAVE_LOG			: "_save_system_log",  
+	MENU_GROUP_SETTING_EXIT				: "_quit_application",   
+	MENU_GROUP_MODULE_ANDROID			: "_open_android_script_module",   
+	MENU_GROUP_MODULE_FILE				: "_open_file_script_module",   
+	MENU_GROUP_ABOUT_VERSION			: "_show_version_info",   
+	MENU_GROUP_ABOUT_DOCUMENT			: "_open_help_document",   
+	MENU_GROUP_ABOUT_AUTHOR				: "_contact_author"   
 }
 
 func _ready() -> void:
@@ -42,7 +44,8 @@ func create_menu():
 	# 添加主菜单 设置的子选项菜单 MyString.WORK_SPACE
 	var menu_group_setting = menu_main_setting.get_popup()
 	menu_group_setting.add_item(MyContext.getString(MyString.WORK_SPACE), MENU_GROUP_SETTING_PATH)
-	menu_group_setting.add_item(MyContext.getString(MyString.CLEAR_LOG), MENU_GROUP_SETTING_CLEAR)
+	menu_group_setting.add_item(MyContext.getString(MyString.CLEAR_LOG), MENU_GROUP_SETTING_CLEAR_LOG)
+	menu_group_setting.add_item(MyContext.getString(MyString.SAVE_LOG), MENU_GROUP_SETTING_SAVE_LOG)
 	menu_group_setting.add_item(MyContext.getString(MyString.EXIT), MENU_GROUP_SETTING_EXIT)
 	
 	# 创建主菜单 模块
@@ -123,6 +126,12 @@ func dir_selected(path: String):
 func _clear_system_log():
 	print("清理系统日志")
 	emit_signal("dialog_clear_system_log")
+	pass
+	
+# 保存系统日志
+func _save_system_log():
+	print("保存系统日志")
+	MyUtil.saveMessageToFile()
 	pass
 
 # 菜单的点击事件 
