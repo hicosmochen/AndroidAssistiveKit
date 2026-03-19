@@ -57,6 +57,7 @@ class ZH extends Lanague:
 	static var ADB_DEVICE								: String  = "检测设备"
 	static var ADB_MODE_DAY								: String  = "日间模式"
 	static var ADB_MODE_NIGHT							: String  = "夜间模式"
+	static var CURRENT_VERSION							: String  = "当前版本:  "
 	pass
 
 class EN extends Lanague:
@@ -113,4 +114,5 @@ class EN extends Lanague:
 	static var ADB_DEVICE								: String  = "device"
 	static var ADB_MODE_DAY								: String  = "day mode"
 	static var ADB_MODE_NIGHT							: String  = "night mode"
+	static var CURRENT_VERSION							: String  = "current version:  "
 	pass

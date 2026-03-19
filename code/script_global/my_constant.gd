@@ -15,6 +15,10 @@ class SignalMethod:
 	static var OPEN_MODULE_ANDROID_SCRIPT			: String = "open_module_android_script"
 	static var OPEN_MODULE_FILE_SCRIPT				: String = "open_module_file_script"
 	
+	static var OPEN_SHOW_ABOUT_VERSION				: String = "open_show_about_version"
+	static var OPEN_SHOW_HELP_DOCUMENT				: String = "open_show_help_document"
+	static var OPEN_SHOW_CONTACT_AUTHOR				: String = "open_show_contact_author"
+	
 	static var GET_FILE_PARAM_PREFIX				: String = "getFileParamPrefix"
 	static var GET_FILE_PARAM_DEIGITS				: String = "getFileParamDeigits"
 	static var FILE_PREFIX_CHANGE 					: String = "filePrefixChange"
@@ -39,6 +43,7 @@ class NodeRoute:
 class NodeName:
 	static var MODEL_FILE							: String = "ModelFile"
 	static var MODEL_ANDROID						: String = "ModelAndroid"
+	static var ABOUT_VERSION						: String = "AboutVersion"
 	pass
 
 

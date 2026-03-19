@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cwfcmva4qn8sy"]
+
+[ext_resource type="Script" uid="uid://b6tmkj0oufmx8" path="res://code/script_scene/about_version.gd" id="1_uagvd"]
+
+[node name="AboutVersion" type="Node2D" unique_id=27013272]
+script = ExtResource("1_uagvd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=446601581]
+offset_top = 60.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1550033081]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 1920.0
+offset_bottom = 500.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "当前版本 :  12.101.1"
+horizontal_alignment = 1
+vertical_alignment = 1
