@@ -25,10 +25,6 @@ func open_file_folder(defaultPath:String) -> FileDialog:
 	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	# 使用原生本地的对话框样式
 	file_dialog.use_native_dialog = true
-	# 设置初始目录（可选）
-	file_dialog.title = "选择一个路径"
-	file_dialog.ok_button_text = "确定"
-	file_dialog.cancel_button_text = "取消"
 	# 如果未选择文件夹, 默认采用文件的路径, 如果选择了文件夹, 默认采用上一次的路径
 	if defaultPath.is_empty():
 		file_dialog.current_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
@@ -43,7 +39,7 @@ func batch_rename(directory_path: String, prefix: String = "file_", digits: int 
 	# 获取目录中的所有文件
 	var dir := DirAccess.open(directory_path)
 	if not dir:
-		sendMessageToArea("错误: 无法打开目录: %s" %[directory_path])
+		sendMessageToArea((MyContext.getString(MyString.ERROR_UNABLE_TO_OPEN_DIRECTORY) + " %s") %[directory_path])
 		return
 	# 获取文件列表（排除自身）
 	var files := []
@@ -56,9 +52,9 @@ func batch_rename(directory_path: String, prefix: String = "file_", digits: int 
 		file_name = dir.get_next()
 	dir.list_dir_end()
 	if files.is_empty():
-		sendMessageToArea("目录中没有需要重命名的文件")
+		sendMessageToArea(MyContext.getString(MyString.NO_FILES_IN_THE_DIRECTORY))
 		return
-	sendMessageToArea("开始重命名...")
+	sendMessageToArea(MyContext.getString(MyString.START_RENAMING))
 	print("------------------------------------------")
 	var count := 1
 	# 遍历并重命名文件
@@ -81,10 +77,11 @@ func batch_rename(directory_path: String, prefix: String = "file_", digits: int 
 			sendMessageToArea("%s  ->  %s" % [old_name, new_name])
 			count += 1
 		else:
-			sendMessageToArea("错误: 无法重命名 %s (错误代码: %d)" % [old_name, error])
+			sendMessageToArea((MyContext.getString(MyString.ERROR_UNABLE_TO_RENAME) 
+				+ " %s ("+MyContext.getString(MyString.ERROR_CODE)+" %d)") % [old_name, error])
 	sendMessageToArea("------------------------------------------")
-	sendMessageToArea("重命名完成！")
-	sendMessageToArea("共处理了 %d 个文件" % (count - 1))
+	sendMessageToArea(MyContext.getString(MyString.RENAMING_COMPLETE))
+	sendMessageToArea((MyContext.getString(MyString.PROCESSED_IN_TOTAL) + " %d " + MyContext.getString(MyString.FILES) ) % (count - 1))
 	pass
 	
 
