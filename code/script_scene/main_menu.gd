@@ -17,6 +17,8 @@ var MENU_GROUP_ABOUT_AUTHOR 			: int = 3003
 signal dialog_exit_progress()
 signal dialog_clear_system_log()
 signal dialog_set_current_lanaguage()
+signal open_module_android_script()
+signal open_module_file_script()
 
 # 使用字典映射处理函数   
 var menu_handlers = {   
@@ -152,12 +154,12 @@ func _quit_application():
 	
 # 菜单的点击事件 
 func _open_android_script_module():
-	print("开启安卓脚本..")
+	emit_signal("open_module_android_script")
 	pass
 	
 # 菜单的点击事件 
 func _open_file_script_module():
-	print("开启文件脚本..")
+	emit_signal("open_module_file_script")
 	pass
 	
 # 菜单的点击事件 

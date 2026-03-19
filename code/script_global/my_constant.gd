@@ -12,6 +12,9 @@ class SignalMethod:
 	static var DIALOG_CLEAR_SYSTEM_LOG				: String = "dialog_clear_system_log"
 	static var DIALOG_SET_CURRENT_LANAGUAGE			: String = "dialog_set_current_lanaguage"
 	
+	static var OPEN_MODULE_ANDROID_SCRIPT			: String = "open_module_android_script"
+	static var OPEN_MODULE_FILE_SCRIPT				: String = "open_module_file_script"
+	
 	static var GET_FILE_PARAM_PREFIX				: String = "getFileParamPrefix"
 	static var GET_FILE_PARAM_DEIGITS				: String = "getFileParamDeigits"
 	static var FILE_PREFIX_CHANGE 					: String = "filePrefixChange"
@@ -28,15 +31,21 @@ class SignalName:
 
 # 节点路由
 class NodeRoute:
-	static var MODEL_FILE							: String = "/root/Main/ModelFile"
+	static var MODEL_FILE							: String = "/root/Main/" + NodeName.MODEL_FILE
 	pass
+
+# 场景节点的名称
+class NodeName:
+	static var MODEL_FILE							: String = "ModelFile"
+	pass
+
 
 # 全局设置的建
 class SettingKey:
 	static var FILE_DIR_PATH						: String = "file_dir_path"
 	static var CURRENT_LANGUAGE						: String = "current_language"
 	pass
-
+	
 # 语言类型
 class LanguageType:
 	static var ZH									: String = "zh"

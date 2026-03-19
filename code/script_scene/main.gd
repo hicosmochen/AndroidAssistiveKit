@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var splash		:Node = $Splash
 @onready var mainMenu	:Node = $MainMenu
-@onready var modelFile	:Node = $ModelFile
+
+var current_scene_mode : Node
 
 func _ready() -> void:
 	
@@ -14,8 +15,10 @@ func _ready() -> void:
 	mainMenu.connect(MyConstant.SignalMethod.DIALOG_CLEAR_SYSTEM_LOG, dialog_clear_system_log)
 	# 监听信号, 当 接收到设置当前语言信号时
 	mainMenu.connect(MyConstant.SignalMethod.DIALOG_SET_CURRENT_LANAGUAGE, dialog_set_current_lanaguage)
-	# 监听信号, 当 接收到重命名的信号时
-	modelFile.connect(MyConstant.SignalMethod.DIALOG_SET_RENAME, dialog_set_rename)
+	# 监听信号, 当 接收到 开启安卓脚本 信号时
+	mainMenu.connect(MyConstant.SignalMethod.OPEN_MODULE_ANDROID_SCRIPT, open_module_android_script)
+	# 监听信号, 当 接收到 开启文件脚本 信号时
+	mainMenu.connect(MyConstant.SignalMethod.OPEN_MODULE_FILE_SCRIPT, open_module_file_script)
 	pass
  
 # splash 动画播放完毕之后的回调
@@ -45,4 +48,25 @@ func dialog_set_current_lanaguage():
 func dialog_exit_progress():
 	var dialog = preload("res://scene/dialog_exit_progress.tscn").instantiate()
 	add_child(dialog)
+	pass
+
+# 开启安卓脚本
+func open_module_android_script():
+	print("开启安卓脚本")
+	pass
+
+# 开启文件脚本
+func open_module_file_script():
+	print("开启文件脚本")
+	# 如果当前侧边场景存在, 则移除当前场景
+	if current_scene_mode:
+		current_scene_mode.queue_free()
+	# 创建当前的场景
+	current_scene_mode = load("res://scene/model_file.tscn").instantiate()
+	# 设置当前场景的名称 (用于后续信号查找到指定的场景信息)
+	current_scene_mode.name = MyConstant.NodeName.MODEL_FILE
+	# 添加场景到主场景中
+	add_child(current_scene_mode)
+	# 关联与当前信号相关的信号
+	current_scene_mode.connect(MyConstant.SignalMethod.DIALOG_SET_RENAME, dialog_set_rename)
 	pass
