@@ -15,14 +15,65 @@ func _ready() -> void:
 	button_operator_04.text = MyContext.getString(MyString.ADB_MODE_DAY)
 	button_operator_05.text = MyContext.getString(MyString.ADB_MODE_NIGHT)
 	
-	 
 	# 设置按钮的点击事件
-	button_operator_01.connect("button_down", clickButtonRenameSet)
-	button_operator_02.connect("button_down", clickButtonRenameStart)
+	button_operator_01.connect("button_down", clickButtonADBroot)
+	button_operator_02.connect("button_down", clickButtonADBremount)
+	button_operator_03.connect("button_down", clickButtonADBreboot)
+	button_operator_04.connect("button_down", clickButtonADBmodeDay)
+	button_operator_05.connect("button_down", clickButtonADBmodeNight)
 	pass
 
-func clickButtonRenameSet():
+# 执行adb root 命令
+func clickButtonADBroot():
+	# 需要执行的命令
+	var command = ["root"]
+	# 调用执行单条命令的方法
+	exe_sigle_command(button_operator_01, command)
 	pass
 
-func clickButtonRenameStart():
+func clickButtonADBremount():
+	# 需要执行的命令
+	var command = ["remount"]
+	# 调用执行单条命令的方法
+	exe_sigle_command(button_operator_02, command)
+	pass
+
+
+func clickButtonADBreboot():
+	# 需要执行的命令
+	var command = ["reboot"]
+	# 调用执行单条命令的方法
+	exe_sigle_command(button_operator_03, command)
+	pass
+
+func clickButtonADBmodeDay():
+	# 需要执行的命令
+	var command = ["shell","cmd","uimode","night","no"]
+	# 调用执行单条命令的方法
+	exe_sigle_command(button_operator_04, command)
+	pass
+
+func clickButtonADBmodeNight():
+	# 需要执行的命令
+	var command = ["shell","cmd","uimode","night","yes"]
+	# 调用执行单条命令的方法
+	exe_sigle_command(button_operator_05, command)
+	pass
+
+# 执行单条 adb 命令
+func exe_sigle_command(button : Button, array: Array):
+	# 点击时, 禁用掉当前的按钮
+	button.disabled = true
+	# 执行adb的命令
+	var dic = MyUtil.execute_adb_command(array)
+	# 延迟1秒钟时间
+	await get_tree().create_timer(1.0).timeout
+	# 取消按钮的禁用状态
+	button.disabled = false
+	# 发送结果给控制台
+	var flag = dic.get("success")
+	if flag:
+		MyUtil.sendMessageToArea(MyContext.getString(MyString.OPERATION_SUCCESS))
+	else:
+		MyUtil.sendMessageToArea(MyContext.getString(MyString.OPERATION_FAILED))
 	pass

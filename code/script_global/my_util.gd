@@ -114,3 +114,14 @@ func saveMessageToFile():
 	# 直接向组里面发送数据
 	get_tree().call_group(MyConstant.SignalName.SHOW_CONTROL, MyConstant.SignalMethod.SAVE_CONTROL)
 	pass
+
+# 执行adb命令的工具方法
+# 备用方案：使用 Process 类（Godot 4.x）   
+func execute_adb_command(array: Array) -> Dictionary:
+	var output = []
+	var exit_code = OS.execute("adb", PackedStringArray(array), output)
+	return {
+		"success": exit_code == 0,
+		"exit_code": exit_code,
+		"output": output
+	}
