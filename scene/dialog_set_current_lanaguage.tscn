@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b7wjn1ddrnvjo"]
+
+[ext_resource type="Texture2D" uid="uid://dasruddb4eyuy" path="res://resource/drawable/button/button_background_zi.png" id="1_t5lgc"]
+[ext_resource type="Script" uid="uid://0gwon0pujvau" path="res://code/script_dialog/dialog_set_current_lanaguage.gd" id="1_t014d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri2s8"]
+bg_color = Color(0.7632465, 0.76324654, 0.7632463, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="DialogSetCurrentLanaguage" type="Node2D" unique_id=278421682]
+script = ExtResource("1_t014d")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1929119509]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(1, 1, 1, 0.4745098)
+
+[node name="Panel" type="Panel" parent="." unique_id=331317196]
+offset_left = 600.0
+offset_top = 300.0
+offset_right = 1320.0
+offset_bottom = 780.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ri2s8")
+
+[node name="Label_title" type="Label" parent="Panel" unique_id=1357253707]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 720.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0.091632105, 0.091632105, 0.091632105, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_language_01" type="Button" parent="Panel" unique_id=1272094910]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 137.0
+offset_right = 634.0
+offset_bottom = 255.0
+theme_override_colors/icon_pressed_color = Color(0.08164752, 0.5510907, 0.10982052, 1)
+theme_override_colors/icon_hover_color = Color(0.10701827, 0.6981298, 0.14030603, 1)
+theme_override_font_sizes/font_size = 36
+icon = ExtResource("1_t5lgc")
+flat = true
+icon_alignment = 1
+
+[node name="Button_language_02" type="Button" parent="Panel" unique_id=2029861580]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 284.0
+offset_right = 634.0
+offset_bottom = 402.0
+theme_override_colors/icon_pressed_color = Color(0.08164752, 0.5510907, 0.10982052, 1)
+theme_override_colors/icon_hover_color = Color(0.10701827, 0.6981298, 0.14030603, 1)
+theme_override_font_sizes/font_size = 36
+icon = ExtResource("1_t5lgc")
+flat = true
+icon_alignment = 1

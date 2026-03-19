@@ -8,6 +8,7 @@ class ZH extends Lanague:
 	static var WORK_SPACE 								: String = "工作路径"
 	static var CLEAR_LOG 								: String  = "清除日志"
 	static var SAVE_LOG 								: String  = "保存日志"
+	static var SET_LANGUAGE 							: String  = "设置语言"
 	static var EXIT 									: String  = "退出"
 	static var MODEL 									: String  = "模块"
 	static var ANDROID_SCRIPT 							: String  = "安卓脚本"
@@ -48,6 +49,8 @@ class ZH extends Lanague:
 	static var ARE_YOU_SURE_YOU_WANT_TO_CLEAR_THE_LOGS	: String  = "您确认清除日志吗?"
 	static var OPERATION_SUCCESS						: String  = "操作成功"
 	static var OPERATION_FAILED							: String  = "操作失败"
+	static var LANAGUAGE_CHINESE						: String  = "简体中文"
+	static var LANAGUAGE_ENGLISH						: String  = "英文"
 	pass
 
 class EN extends Lanague:
@@ -55,6 +58,7 @@ class EN extends Lanague:
 	static var WORK_SPACE 								: String = "work space"
 	static var CLEAR_LOG 								: String  = "clear log"
 	static var SAVE_LOG 								: String  = "save log"
+	static var SET_LANGUAGE 							: String  = "set language"
 	static var EXIT 									: String  = "exit"
 	static var MODEL 									: String  = "model"
 	static var ANDROID_SCRIPT 							: String  = "android script"
@@ -95,4 +99,6 @@ class EN extends Lanague:
 	static var ARE_YOU_SURE_YOU_WANT_TO_CLEAR_THE_LOGS	: String  = "Are you sure you want to clear the logs?"
 	static var OPERATION_SUCCESS						: String  = "operation success"
 	static var OPERATION_FAILED							: String  = "operation failed"
+	static var LANAGUAGE_CHINESE						: String  = "chinese"
+	static var LANAGUAGE_ENGLISH						: String  = "english"
 	pass

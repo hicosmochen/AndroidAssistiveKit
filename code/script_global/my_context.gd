@@ -3,7 +3,9 @@ extends Node
 # 获取字符串
 func getString(key: String) -> String:
 	# 设置当前的语言环境
-	var current_language = "ZH"
+	var current_language = MyUtil.get_data(MyConstant.SettingKey.CURRENT_LANGUAGE)
+	if current_language.is_empty():
+		current_language = MyConstant.LanguageType.ZH
 	# 返回需要显示的结果
 	var result = _load_current_lanague(current_language, key)
 	return result
@@ -13,8 +15,8 @@ func getString(key: String) -> String:
 func _load_current_lanague(language: String, key: String) -> String:
 	var object
 	match  language:
-		"EN":
+		MyConstant.LanguageType.EN:
 			object = MyLanague.EN.new().get(key)
-		"ZH":
+		MyConstant.LanguageType.ZH:
 			object = MyLanague.ZH.new().get(key)
 	return str(object)

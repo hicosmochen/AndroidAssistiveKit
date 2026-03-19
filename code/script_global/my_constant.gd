@@ -10,6 +10,7 @@ class SignalMethod:
 	static var DIALOG_EXIT_PROGRESS 				: String = "dialog_exit_progress"
 	static var DIALOG_SET_RENAME 					: String = "dialog_set_rename"
 	static var DIALOG_CLEAR_SYSTEM_LOG				: String = "dialog_clear_system_log"
+	static var DIALOG_SET_CURRENT_LANAGUAGE			: String = "dialog_set_current_lanaguage"
 	
 	static var GET_FILE_PARAM_PREFIX				: String = "getFileParamPrefix"
 	static var GET_FILE_PARAM_DEIGITS				: String = "getFileParamDeigits"
@@ -33,4 +34,11 @@ class NodeRoute:
 # 全局设置的建
 class SettingKey:
 	static var FILE_DIR_PATH						: String = "file_dir_path"
+	static var CURRENT_LANGUAGE						: String = "current_language"
+	pass
+
+# 语言类型
+class LanguageType:
+	static var ZH									: String = "zh"
+	static var EN									: String = "en"
 	pass

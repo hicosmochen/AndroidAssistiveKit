@@ -12,6 +12,8 @@ func _ready() -> void:
 	mainMenu.connect(MyConstant.SignalMethod.DIALOG_EXIT_PROGRESS, dialog_exit_progress)
 	# 监听信号, 当 接收到清理日志的信号时
 	mainMenu.connect(MyConstant.SignalMethod.DIALOG_CLEAR_SYSTEM_LOG, dialog_clear_system_log)
+	# 监听信号, 当 接收到设置当前语言信号时
+	mainMenu.connect(MyConstant.SignalMethod.DIALOG_SET_CURRENT_LANAGUAGE, dialog_set_current_lanaguage)
 	# 监听信号, 当 接收到重命名的信号时
 	modelFile.connect(MyConstant.SignalMethod.DIALOG_SET_RENAME, dialog_set_rename)
 	pass
@@ -30,6 +32,12 @@ func dialog_set_rename():
 # 清理日志
 func dialog_clear_system_log():
 	var dialog = preload("res://scene/dialog_clear_system_log.tscn").instantiate()
+	add_child(dialog)
+	pass
+	
+# 设置当前的语言
+func dialog_set_current_lanaguage():
+	var dialog = preload("res://scene/dialog_set_current_lanaguage.tscn").instantiate()
 	add_child(dialog)
 	pass
 

@@ -5,7 +5,8 @@ extends Node2D
 var MENU_GROUP_SETTING_PATH 			: int = 1001
 var MENU_GROUP_SETTING_CLEAR_LOG 		: int = 1002
 var MENU_GROUP_SETTING_SAVE_LOG 		: int = 1003
-var MENU_GROUP_SETTING_EXIT 			: int = 1004
+var MENU_GROUP_SETTING_LANGUAGE 		: int = 1004
+var MENU_GROUP_SETTING_EXIT 			: int = 1005
 var MENU_GROUP_MODULE_ANDROID 			: int = 2001
 var MENU_GROUP_MODULE_FILE 				: int = 2002
 var MENU_GROUP_ABOUT_VERSION 			: int = 3001
@@ -15,12 +16,14 @@ var MENU_GROUP_ABOUT_AUTHOR 			: int = 3003
 # 定义信号
 signal dialog_exit_progress()
 signal dialog_clear_system_log()
+signal dialog_set_current_lanaguage()
 
 # 使用字典映射处理函数   
 var menu_handlers = {   
 	MENU_GROUP_SETTING_PATH				: "_open_work_path_dialog", 
 	MENU_GROUP_SETTING_CLEAR_LOG		: "_clear_system_log",  
 	MENU_GROUP_SETTING_SAVE_LOG			: "_save_system_log",  
+	MENU_GROUP_SETTING_LANGUAGE			: "_set_current_lanaguage",  
 	MENU_GROUP_SETTING_EXIT				: "_quit_application",   
 	MENU_GROUP_MODULE_ANDROID			: "_open_android_script_module",   
 	MENU_GROUP_MODULE_FILE				: "_open_file_script_module",   
@@ -46,6 +49,7 @@ func create_menu():
 	menu_group_setting.add_item(MyContext.getString(MyString.WORK_SPACE), MENU_GROUP_SETTING_PATH)
 	menu_group_setting.add_item(MyContext.getString(MyString.CLEAR_LOG), MENU_GROUP_SETTING_CLEAR_LOG)
 	menu_group_setting.add_item(MyContext.getString(MyString.SAVE_LOG), MENU_GROUP_SETTING_SAVE_LOG)
+	menu_group_setting.add_item(MyContext.getString(MyString.SET_LANGUAGE), MENU_GROUP_SETTING_LANGUAGE)
 	menu_group_setting.add_item(MyContext.getString(MyString.EXIT), MENU_GROUP_SETTING_EXIT)
 	
 	# 创建主菜单 模块
@@ -132,6 +136,12 @@ func _clear_system_log():
 func _save_system_log():
 	print("保存系统日志")
 	MyUtil.saveMessageToFile()
+	pass
+	
+# 设置当前的语言
+func _set_current_lanaguage():
+	print("设置当前的语言")
+	emit_signal("dialog_set_current_lanaguage")
 	pass
 
 # 菜单的点击事件 
