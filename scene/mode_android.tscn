@@ -69,3 +69,15 @@ theme_override_font_sizes/font_size = 24
 icon = ExtResource("1_cedh3")
 flat = true
 icon_alignment = 1
+
+[node name="Button_06" type="Button" parent="Panel" unique_id=59038567]
+layout_mode = 0
+offset_top = 472.0
+offset_right = 220.0
+offset_bottom = 578.0
+theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
+theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
+theme_override_font_sizes/font_size = 24
+icon = ExtResource("1_cedh3")
+flat = true
+icon_alignment = 1

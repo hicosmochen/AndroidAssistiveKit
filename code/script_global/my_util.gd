@@ -115,6 +115,15 @@ func saveMessageToFile():
 	get_tree().call_group(MyConstant.SignalName.SHOW_CONTROL, MyConstant.SignalMethod.SAVE_CONTROL)
 	pass
 
+
+# 将数组转换成为字符串类型
+func forwardArrayToString(array : Array) -> String:
+	var builder = PackedStringArray()
+	for i in range(array.size()):
+		builder.append(array[i])
+	return "".join(builder)
+
+
 # 执行adb命令的工具方法
 # 备用方案：使用 Process 类（Godot 4.x）   
 func execute_adb_command(array: Array) -> Dictionary:

@@ -13,8 +13,10 @@ func _ready() -> void:
 
 # 显示内容
 func show_control(message: String):
+	builder.append("[")
 	builder.append(current_time())
-	builder.append(" ")
+	builder.append("]")
+	builder.append("\t")
 	builder.append(message)
 	builder.append("\n")
 	control_label.text = "".join(builder)

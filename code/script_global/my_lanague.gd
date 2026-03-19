@@ -54,6 +54,7 @@ class ZH extends Lanague:
 	static var ADB_ROOT									: String  = "最高授权"
 	static var ADB_REMOUNT								: String  = "挂载设备"
 	static var ADB_REBOOT								: String  = "重启设备"
+	static var ADB_DEVICE								: String  = "检测设备"
 	static var ADB_MODE_DAY								: String  = "日间模式"
 	static var ADB_MODE_NIGHT							: String  = "夜间模式"
 	pass
@@ -109,6 +110,7 @@ class EN extends Lanague:
 	static var ADB_ROOT									: String  = "root"
 	static var ADB_REMOUNT								: String  = "remount"
 	static var ADB_REBOOT								: String  = "reboot"
+	static var ADB_DEVICE								: String  = "device"
 	static var ADB_MODE_DAY								: String  = "day mode"
 	static var ADB_MODE_NIGHT							: String  = "night mode"
 	pass
