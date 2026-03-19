@@ -16,7 +16,6 @@ class SignalMethod:
 	static var OPEN_MODULE_FILE_SCRIPT				: String = "open_module_file_script"
 	
 	static var OPEN_SHOW_ABOUT_VERSION				: String = "open_show_about_version"
-	static var OPEN_SHOW_HELP_DOCUMENT				: String = "open_show_help_document"
 	static var OPEN_SHOW_CONTACT_AUTHOR				: String = "open_show_contact_author"
 	
 	static var GET_FILE_PARAM_PREFIX				: String = "getFileParamPrefix"

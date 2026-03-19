@@ -22,8 +22,6 @@ func _ready() -> void:
 	mainMenu.connect(MyConstant.SignalMethod.OPEN_MODULE_FILE_SCRIPT, open_module_file_script)
 	# 监听信号, 当 接收到 关于版本 信号时
 	mainMenu.connect(MyConstant.SignalMethod.OPEN_SHOW_ABOUT_VERSION, open_show_about_version)
-	# 监听信号, 当 接收到 帮助文档 信号时
-	mainMenu.connect(MyConstant.SignalMethod.OPEN_SHOW_HELP_DOCUMENT, open_show_help_document)
 	# 监听信号, 当 接收到 联系作者 信号时
 	mainMenu.connect(MyConstant.SignalMethod.OPEN_SHOW_CONTACT_AUTHOR, open_show_contact_author)
 	pass
@@ -101,20 +99,6 @@ func open_show_about_version():
 		current_scene_screen_all.queue_free()
 	# 创建当前的场景
 	current_scene_screen_all = load("res://scene/about_version.tscn").instantiate()
-	# 设置当前场景的名称 (用于后续信号查找到指定的场景信息)
-	current_scene_screen_all.name = MyConstant.NodeName.ABOUT_VERSION
-	# 添加场景到主场景中
-	add_child(current_scene_screen_all)
-	pass
-
-# 开启帮助文档脚本
-func open_show_help_document():
-	print("开启帮助文档脚本")
-	# 如果当前侧边场景存在, 则移除当前场景
-	if current_scene_screen_all:
-		current_scene_screen_all.queue_free()
-	# 创建当前的场景
-	current_scene_screen_all = load("res://scene/about_document.tscn").instantiate()
 	# 设置当前场景的名称 (用于后续信号查找到指定的场景信息)
 	current_scene_screen_all.name = MyConstant.NodeName.ABOUT_VERSION
 	# 添加场景到主场景中

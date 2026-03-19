@@ -20,7 +20,6 @@ signal dialog_set_current_lanaguage()
 signal open_module_android_script()
 signal open_module_file_script()
 signal open_show_about_version()
-signal open_show_help_document()
 signal open_show_contact_author()
 
 # 使用字典映射处理函数   
@@ -174,7 +173,10 @@ func _show_version_info():
 # 菜单的点击事件 
 func _open_help_document():
 	print("打开帮助文档..")
-	emit_signal("open_show_help_document")
+	# 打开网站
+	var url = "https://blog.csdn.net/ShiShiLunHui/article/details/159248794?spm=1011.2415.3001.5331"
+	# 直接采用外部浏览器打开网页
+	OS.shell_open(url)
 	pass
 	
 # 菜单的点击事件 
