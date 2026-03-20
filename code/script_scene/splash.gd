@@ -18,5 +18,6 @@ func playSplashAnimated():
 	splashAnimatedSprite2D.stop()
 	# 发射信号
 	emit_signal("splashAnimatedFinish")
-	free()
+	# 退出当前的场景
+	queue_free()
 	pass
