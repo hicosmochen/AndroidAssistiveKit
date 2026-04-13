@@ -1,6 +1,6 @@
 extends Node
 
-signal adb_command_completed(result: Dictionary)
+signal adb_command_completed(adb_type : String,result: Dictionary) 
 
 # 工具方法, 存储设置数据
 func set_data(key:String, value:String):
@@ -128,11 +128,11 @@ func forwardArrayToString(array : Array) -> String:
 
 # 执行adb命令的工具方法
 # 备用方案：使用 Process 类（Godot 4.x）   
-func execute_adb_command(array: Array) -> void:
+func execute_adb_command(adb_type: String, array: Array) -> void:
 	var work_thread = Thread.new()   
-	work_thread.start(_execute_in_thread.bind(array, work_thread))
+	work_thread.start(_execute_in_thread.bind(adb_type, array, work_thread))
 
-func _execute_in_thread(array: Array, work_thread: Thread) -> void:   
+func _execute_in_thread(adb_type: String,array: Array, work_thread: Thread) -> void:   
 	var args = PackedStringArray(array)
 	var output = []   
 	var exit_code = OS.execute("adb", args, output, true)
@@ -141,12 +141,13 @@ func _execute_in_thread(array: Array, work_thread: Thread) -> void:
 		"output": output,   
 		"command": array   
 	}
-	call_deferred("_on_command_finished", result, work_thread)
+	call_deferred("_on_adb_command", adb_type, result, work_thread)
+
    
-func _on_command_finished(result: Dictionary, work_thread: Thread) -> void:   
+func _on_adb_command(adb_type: String, result: Dictionary, work_thread: Thread) -> void:   
 	if work_thread.is_alive():   
 		work_thread.wait_to_finish()
-	emit_signal("adb_command_completed", result)
+	emit_signal("adb_command_completed", adb_type, result)
 
 
 # 递归遍历目录树下面的所有指定的文件, 保存到数组当中

@@ -80,10 +80,22 @@ func clickButtonADBmodeNight():
 	pass
 
 func clickButtonADBapkPush():
+	# 找到工作空间的路径
+	var dirPath = MyUtil.get_data(MyConstant.SettingKey.FILE_DIR_PATH)
+	var file_array = MyUtil.get_kind_file_recursive("apk",dirPath);
+	button_operator_07.disabled = true
 	# 需要执行的命令
-	var command = ["shell","cmd","uimode","night","yes"]
-	# 调用执行单条命令的方法
-	exe_sigle_command(button_operator_07, command)
+	for path in file_array:
+		# 需要找到 目录 /system/priv-app
+		var apk_name = path.get_file()
+		var dir_name = apk_name.get_basename()
+		var command1 = ["shell","mkdir","-p", "/system/priv-app/%s" % dir_name]
+		MyUtil.execute_adb_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_MIDDLE,command1)
+		# 延迟几秒钟
+		await get_tree().create_timer(3.0).timeout
+		var command2 = ["push", path, "/system/priv-app/%s/"%dir_name]
+		# 调用执行单条命令的方法
+		exe_sigle_command(button_operator_07, command2)
 	pass
 
 func clickButtonADBapkInstall():
@@ -103,22 +115,24 @@ func exe_sigle_command(button : Button, array: Array):
 	# 点击时, 禁用掉当前的按钮
 	button.disabled = true
 	# 执行adb的命令
-	MyUtil.execute_adb_command(array)
+	MyUtil.execute_adb_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, array)
 	# 延迟1秒钟时间
 	await get_tree().create_timer(1.0).timeout
 	# 取消按钮的禁用状态
 	button.disabled = false
 	pass
 
-
-func on_adb_command_completed(dictionary: Dictionary):
+func on_adb_command_completed(adb_type: String, dictionary: Dictionary):
 	# 发送结果给控制台
 	var flag = dictionary.get("success")
 	var output = dictionary.get("output")
 	var outMessage = MyUtil.forwardArrayToString(output)
 	if outMessage.is_empty():
 		if flag:
-			MyUtil.sendMessageToArea(MyContext.getString(MyString.OPERATION_SUCCESS))
+			if adb_type == MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH:
+				MyUtil.sendMessageToArea(MyContext.getString(MyString.OPERATION_SUCCESS))
+			if adb_type == MyConstant.SignalADBType.SIGNAL_ADB_TYPE_MIDDLE:
+				MyUtil.sendMessageToArea(MyContext.getString(MyString.PLEASE_WAIT))
 		else:
 			MyUtil.sendMessageToArea(MyContext.getString(MyString.OPERATION_FAILED))
 	else:

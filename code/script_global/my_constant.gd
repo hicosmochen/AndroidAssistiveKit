@@ -28,8 +28,14 @@ class SignalMethod:
 # 信号关联的名称
 class SignalName:
 	static var SPLASH_ANIMATED_FINISH				: String = "splashAnimatedFinish"
-	static var SHOW_CONTROL 						: String = "show_control"
+	static var SHOW_CONTROL 							: String = "show_control"
 	static var SHOW_FILE_PARAM						: String = "show_file_param"
+	pass
+	
+# 信号关联的名称
+class SignalADBType:
+	static var SIGNAL_ADB_TYPE_MIDDLE				: String = "signal_adb_type_middle"
+	static var SIGNAL_ADB_TYPE_FINISH 				: String = "signal_adb_type_finish"
 	pass
 
 # 节点路由
@@ -41,14 +47,14 @@ class NodeRoute:
 # 场景节点的名称
 class NodeName:
 	static var MODEL_FILE							: String = "ModelFile"
-	static var MODEL_ANDROID						: String = "ModelAndroid"
-	static var ABOUT_VERSION						: String = "AboutVersion"
+	static var MODEL_ANDROID							: String = "ModelAndroid"
+	static var ABOUT_VERSION							: String = "AboutVersion"
 	pass
 
 
 # 全局设置的建
 class SettingKey:
-	static var FILE_DIR_PATH						: String = "file_dir_path"
+	static var FILE_DIR_PATH							: String = "file_dir_path"
 	static var CURRENT_LANGUAGE						: String = "current_language"
 	pass
 	
