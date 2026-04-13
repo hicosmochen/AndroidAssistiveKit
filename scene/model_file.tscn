@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dnundvf0x6wm3" path="res://resource/drawable/button/button_background_item.png" id="1_5snhq"]
 [ext_resource type="Script" uid="uid://du768cdnbmm17" path="res://code/script_scene/model_file.gd" id="1_egrpi"]
+[ext_resource type="Theme" uid="uid://bkihks4v8xbgs" path="res://theme/option_button.tres" id="2_60r8g"]
 
 [node name="ModelFile" type="Node2D" unique_id=26493553]
 script = ExtResource("1_egrpi")
@@ -15,8 +16,7 @@ offset_bottom = 1080.0
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
-theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
+theme = ExtResource("2_60r8g")
 theme_override_font_sizes/font_size = 24
 icon = ExtResource("1_5snhq")
 flat = true
@@ -27,8 +27,7 @@ layout_mode = 0
 offset_top = 94.0
 offset_right = 220.0
 offset_bottom = 200.0
-theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
-theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
+theme = ExtResource("2_60r8g")
 theme_override_font_sizes/font_size = 24
 icon = ExtResource("1_5snhq")
 flat = true
@@ -39,8 +38,7 @@ layout_mode = 0
 offset_top = 188.0
 offset_right = 220.0
 offset_bottom = 294.0
-theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
-theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
+theme = ExtResource("2_60r8g")
 theme_override_font_sizes/font_size = 24
 icon = ExtResource("1_5snhq")
 flat = true
@@ -51,8 +49,7 @@ layout_mode = 0
 offset_top = 282.0
 offset_right = 220.0
 offset_bottom = 388.0
-theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
-theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
+theme = ExtResource("2_60r8g")
 theme_override_font_sizes/font_size = 24
 icon = ExtResource("1_5snhq")
 flat = true
@@ -63,8 +60,7 @@ layout_mode = 0
 offset_top = 376.0
 offset_right = 220.0
 offset_bottom = 482.0
-theme_override_colors/icon_pressed_color = Color(0.034162004, 0.41786498, 0.4919225, 1)
-theme_override_colors/icon_hover_color = Color(0.06508774, 0.6070915, 0.7089007, 1)
+theme = ExtResource("2_60r8g")
 theme_override_font_sizes/font_size = 24
 icon = ExtResource("1_5snhq")
 flat = true

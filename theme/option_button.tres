@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://bkihks4v8xbgs"]
+
+[ext_resource type="Texture2D" uid="uid://dnundvf0x6wm3" path="res://resource/drawable/button/button_background_item.png" id="1_xptqh"]
+
+[resource]
+Button/colors/icon_hover_color = Color(0.510083, 0.7607627, 0.9968644, 1)
+Button/colors/icon_normal_color = Color(0.31562686, 0.499905, 0.97210485, 1)
+Button/icons/icon = ExtResource("1_xptqh")

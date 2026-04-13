@@ -5,6 +5,7 @@ extends Node2D
 # 定义信号, 表示 splash 动画播放完毕
 signal splashAnimatedFinish()
 
+
 func _ready() -> void:
 	# 播放 splash 动画
 	playSplashAnimated()

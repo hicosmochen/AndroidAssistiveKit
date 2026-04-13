@@ -29,6 +29,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray()
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -36,3 +40,5 @@ window/stretch/mode="viewport"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
