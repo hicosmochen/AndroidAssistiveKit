@@ -1,5 +1,7 @@
 extends Node
 
+signal adb_command_completed(result: Dictionary)
+
 # 工具方法, 存储设置数据
 func set_data(key:String, value:String):
 	ProjectSettings.set_setting(key, value)
@@ -126,11 +128,33 @@ func forwardArrayToString(array : Array) -> String:
 
 # 执行adb命令的工具方法
 # 备用方案：使用 Process 类（Godot 4.x）   
-func execute_adb_command(array: Array) -> Dictionary:
-	var output = []
-	var exit_code = OS.execute("adb", PackedStringArray(array), output)
-	return {
-		"success": exit_code == 0,
-		"exit_code": exit_code,
-		"output": output
+func execute_adb_command(array: Array) -> void:
+	var work_thread = Thread.new()   
+	work_thread.start(_execute_in_thread.bind(array, work_thread))
+
+func _execute_in_thread(array: Array, work_thread: Thread) -> void:   
+	var args = PackedStringArray(array)
+	var output = []   
+	var exit_code = OS.execute("adb", args, output, true)
+	var result = {   
+		"success": exit_code == 0,   
+		"output": output,   
+		"command": array   
 	}
+	call_deferred("_on_command_finished", result, work_thread)
+   
+func _on_command_finished(result: Dictionary, work_thread: Thread) -> void:   
+	if work_thread.is_alive():   
+		work_thread.wait_to_finish()
+	emit_signal("adb_command_completed", result)
+
+
+# 递归遍历目录树下面的所有指定的文件, 保存到数组当中
+func get_kind_file_recursive(kind:String, path:String) -> Array:
+	var file_array = []
+	var dir = DirAccess.open(path)
+	if dir:
+		for file_name in dir.get_files():
+			if file_name.get_extension().to_lower() == kind.to_lower():
+				file_array.append(path.path_join(file_name))
+	return file_array;
