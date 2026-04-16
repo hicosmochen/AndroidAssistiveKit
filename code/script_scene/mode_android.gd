@@ -10,6 +10,7 @@ extends Node2D
 @onready var button_operator_08 	: Button = $Panel/Button_08
 @onready var button_operator_09 	: Button = $Panel/Button_09
 @onready var button_operator_10 	: Button = $Panel/Button_10
+@onready var button_operator_11 	: Button = $Panel/Button_11
 
 func _ready() -> void:
 	MyUtil.adb_command_completed.connect(on_adb_command_completed)
@@ -25,6 +26,7 @@ func _ready() -> void:
 	button_operator_08.text = MyContext.getString(MyString.ADB_APK_INSTALL)
 	button_operator_09.text = MyContext.getString(MyString.ADB_CAPTURE_LOG_START)
 	button_operator_10.text = MyContext.getString(MyString.ADB_CAPTURE_LOG_STOP)
+	button_operator_11.text = MyContext.getString(MyString.ADB_LOG_CLEAR)
 	
 	# 设置按钮的点击事件
 	button_operator_01.connect("button_down", clickButtonADBdevice)
@@ -37,6 +39,7 @@ func _ready() -> void:
 	button_operator_08.connect("button_down", clickButtonADBapkInstall)
 	button_operator_09.connect("button_down", clickButtonADBCaptureLogStart)
 	button_operator_10.connect("button_down", clickButtonADBCaptureLogStop)
+	button_operator_11.connect("button_down", clickButtonADBLogClear)
 	pass
 
 
@@ -132,10 +135,18 @@ func clickButtonADBCaptureLogStart():
 	
 func clickButtonADBCaptureLogStop():
 	MyUtil.sendMessageToArea(MyContext.getString(MyString.ADB_CAPTURE_LOG_STOP))
-	# 需要执行的命令 
+	# 需要执行的命令
 	var command = ["/F", "/IM", "adb.exe", "/T"]
 	# 调用执行单条命令的方法
 	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_TASK_KILL, button_operator_10, command)
+	pass
+
+func clickButtonADBLogClear():
+	MyUtil.sendMessageToArea(MyContext.getString(MyString.ADB_LOG_CLEAR))
+	# 需要执行的命令
+	var command = ["logcat", "-c"]
+	# 调用执行单条命令的方法
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_11, command)
 	pass
 
 # 执行单条 adb 命令

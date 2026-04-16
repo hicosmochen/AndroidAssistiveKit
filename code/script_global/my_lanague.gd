@@ -63,6 +63,7 @@ class ZH extends Lanague:
 	static var PLEASE_WAIT								: String  = "请稍候，正在执行"
 	static var ADB_CAPTURE_LOG_START						: String  = "开始抓取日志"
 	static var ADB_CAPTURE_LOG_STOP						: String  = "停止抓取日志"
+	static var ADB_LOG_CLEAR								: String  = "清除日志"
 	pass
 
 class EN extends Lanague:
@@ -125,4 +126,5 @@ class EN extends Lanague:
 	static var PLEASE_WAIT								: String  = "Please wait, it's being processed"
 	static var ADB_CAPTURE_LOG_START						: String  = "grab log start"
 	static var ADB_CAPTURE_LOG_STOP						: String  = "grab log stop"
+	static var ADB_LOG_CLEAR								: String  = "clear log"
 	pass
