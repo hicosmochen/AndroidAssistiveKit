@@ -109,3 +109,27 @@ theme_override_font_sizes/font_size = 24
 icon = ExtResource("1_cedh3")
 flat = true
 icon_alignment = 1
+
+[node name="Button_09" type="Button" parent="Panel" unique_id=459735141]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 212.0
+offset_right = 241.0
+offset_bottom = 318.0
+theme = ExtResource("2_m1fdv")
+theme_override_font_sizes/font_size = 24
+icon = ExtResource("1_cedh3")
+flat = true
+icon_alignment = 1
+
+[node name="Button_10" type="Button" parent="Panel" unique_id=131124578]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 211.0
+offset_right = 461.0
+offset_bottom = 317.0
+theme = ExtResource("2_m1fdv")
+theme_override_font_sizes/font_size = 24
+icon = ExtResource("1_cedh3")
+flat = true
+icon_alignment = 1

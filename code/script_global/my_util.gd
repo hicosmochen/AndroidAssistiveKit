@@ -126,16 +126,79 @@ func forwardArrayToString(array : Array) -> String:
 	return "".join(builder)
 
 
+func current_time() -> String:
+	var timeBuilder = PackedStringArray()
+	var dic = Time.get_datetime_dict_from_system(true)
+	var year = dic.get("year")
+	var month = dic.get("month")
+	var day = dic.get("day")
+	var hour = dic.get("hour")
+	var minute = dic.get("minute")
+	var second = dic.get("second")
+	timeBuilder.append(str(year))
+	if month>9:
+		timeBuilder.append(month)
+	else:
+		timeBuilder.append("0")
+		timeBuilder.append(str(month))
+	if day>9:
+		timeBuilder.append(str(day))
+	else:
+		timeBuilder.append("0")
+		timeBuilder.append(str(day))
+	# 处理时差问题
+	if hour < 16:
+		hour = hour + 8
+	else:
+		hour = hour - 16
+	# 处理小时数据
+	if hour>9:
+		timeBuilder.append("_")
+		timeBuilder.append(str(hour))
+	else:
+		timeBuilder.append("_")
+		timeBuilder.append("0")
+		timeBuilder.append(str(hour))
+	if minute>9:
+		timeBuilder.append(str(minute))
+	else:
+		timeBuilder.append("0")
+		timeBuilder.append(str(minute))
+	if second>9:
+		timeBuilder.append(str(second))
+	else:
+		timeBuilder.append("0")
+		timeBuilder.append(str(second))
+	return "".join(timeBuilder)
+	
+
 # 执行adb命令的工具方法
 # 备用方案：使用 Process 类（Godot 4.x）   
 func execute_adb_command(adb_type: String, array: Array) -> void:
-	var work_thread = Thread.new()   
-	work_thread.start(_execute_in_thread.bind(adb_type, array, work_thread))
+	var work_thread = Thread.new()
+	if (adb_type == MyConstant.SignalADBType.SIGNAL_ADB_TYPE_MIDDLE):
+		work_thread.start(_execute_adb_in_thread.bind(adb_type, array, work_thread))
+	elif (adb_type == MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH):
+		work_thread.start(_execute_adb_in_thread.bind(adb_type, array, work_thread))
+	else:
+		work_thread.start(_execute_type_in_thread.bind(adb_type, array, work_thread))
 
-func _execute_in_thread(adb_type: String,array: Array, work_thread: Thread) -> void:   
+func _execute_adb_in_thread(adb_type: String,array: Array, work_thread: Thread) -> void:   
 	var args = PackedStringArray(array)
 	var output = []   
 	var exit_code = OS.execute("adb", args, output, true)
+	var result = {   
+		"success": exit_code == 0,   
+		"output": output,   
+		"command": array   
+	}
+	call_deferred("_on_adb_command", adb_type, result, work_thread)
+
+
+func _execute_type_in_thread(adb_type: String,array: Array, work_thread: Thread) -> void:
+	var args = PackedStringArray(array)
+	var output = []   
+	var exit_code = OS.execute(adb_type, args, output, true)
 	var result = {   
 		"success": exit_code == 0,   
 		"output": output,   

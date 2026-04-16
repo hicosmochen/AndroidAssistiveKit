@@ -8,6 +8,8 @@ extends Node2D
 @onready var button_operator_06 	: Button = $Panel/Button_06
 @onready var button_operator_07 	: Button = $Panel/Button_07
 @onready var button_operator_08 	: Button = $Panel/Button_08
+@onready var button_operator_09 	: Button = $Panel/Button_09
+@onready var button_operator_10 	: Button = $Panel/Button_10
 
 func _ready() -> void:
 	MyUtil.adb_command_completed.connect(on_adb_command_completed)
@@ -21,6 +23,8 @@ func _ready() -> void:
 	button_operator_06.text = MyContext.getString(MyString.ADB_MODE_NIGHT)
 	button_operator_07.text = MyContext.getString(MyString.ADB_APK_PUSH)
 	button_operator_08.text = MyContext.getString(MyString.ADB_APK_INSTALL)
+	button_operator_09.text = MyContext.getString(MyString.ADB_CAPTURE_LOG_START)
+	button_operator_10.text = MyContext.getString(MyString.ADB_CAPTURE_LOG_STOP)
 	
 	# 设置按钮的点击事件
 	button_operator_01.connect("button_down", clickButtonADBdevice)
@@ -31,6 +35,8 @@ func _ready() -> void:
 	button_operator_06.connect("button_down", clickButtonADBmodeNight)
 	button_operator_07.connect("button_down", clickButtonADBapkPush)
 	button_operator_08.connect("button_down", clickButtonADBapkInstall)
+	button_operator_09.connect("button_down", clickButtonADBCaptureLogStart)
+	button_operator_10.connect("button_down", clickButtonADBCaptureLogStop)
 	pass
 
 
@@ -38,7 +44,7 @@ func clickButtonADBdevice():
 	# 需要执行的命令
 	var command = ["devices"]
 	# 调用执行单条命令的方法
-	exe_sigle_command(button_operator_01, command)
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_01, command)
 	pass
 
 # 执行adb root 命令
@@ -46,14 +52,14 @@ func clickButtonADBroot():
 	# 需要执行的命令
 	var command = ["root"]
 	# 调用执行单条命令的方法
-	exe_sigle_command(button_operator_02, command)
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_02, command)
 	pass
 
 func clickButtonADBremount():
 	# 需要执行的命令
 	var command = ["remount"]
 	# 调用执行单条命令的方法
-	exe_sigle_command(button_operator_03, command)
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_03, command)
 	pass
 
 
@@ -61,7 +67,7 @@ func clickButtonADBreboot():
 	# 需要执行的命令
 	var command = ["reboot"]
 	# 调用执行单条命令的方法
-	exe_sigle_command(button_operator_04, command)
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_04, command)
 	pass
 
 
@@ -69,14 +75,14 @@ func clickButtonADBmodeDay():
 	# 需要执行的命令
 	var command = ["shell","cmd","uimode","night","no"]
 	# 调用执行单条命令的方法
-	exe_sigle_command(button_operator_05, command)
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_05, command)
 	pass
 
 func clickButtonADBmodeNight():
 	# 需要执行的命令
 	var command = ["shell","cmd","uimode","night","yes"]
 	# 调用执行单条命令的方法
-	exe_sigle_command(button_operator_06, command)
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_06, command)
 	pass
 
 func clickButtonADBapkPush():
@@ -95,7 +101,7 @@ func clickButtonADBapkPush():
 		await get_tree().create_timer(3.0).timeout
 		var command2 = ["push", path, "/system/priv-app/%s/"%dir_name]
 		# 调用执行单条命令的方法
-		exe_sigle_command(button_operator_07, command2)
+		exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_07, command2)
 	pass
 
 func clickButtonADBapkInstall():
@@ -107,15 +113,37 @@ func clickButtonADBapkInstall():
 		MyUtil.sendMessageToArea(MyContext.getString(MyString.PLEASE_WAIT))
 		var command = ["install","-r","-d", path]
 		# 调用执行单条命令的方法
-		exe_sigle_command(button_operator_08, command)
+		exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, button_operator_08, command)
+	pass
+
+func clickButtonADBCaptureLogStart():
+	MyUtil.sendMessageToArea(MyContext.getString(MyString.ADB_CAPTURE_LOG_START))
+	# adb logcat > C:/Users/Administrator/Desktop/aa/log.txt
+	var dirPath = MyUtil.get_data(MyConstant.SettingKey.FILE_DIR_PATH)
+	var logpath = ProjectSettings.globalize_path(dirPath.path_join("log-"+MyUtil.current_time()+".txt"))
+	if dirPath.is_empty():
+		MyUtil.sendMessageToArea(MyContext.getString(MyString.THE_PATH_CANNOT_BE_EMPTY))
+		return
+	# 需要执行的命令
+	var command = ["/c", "adb", "logcat",">" , logpath]
+	# 调用执行单条命令的方法
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_CMD, button_operator_09, command)
+	pass
+	
+func clickButtonADBCaptureLogStop():
+	MyUtil.sendMessageToArea(MyContext.getString(MyString.ADB_CAPTURE_LOG_STOP))
+	# 需要执行的命令 
+	var command = ["/F", "/IM", "adb.exe", "/T"]
+	# 调用执行单条命令的方法
+	exe_sigle_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_TASK_KILL, button_operator_10, command)
 	pass
 
 # 执行单条 adb 命令
-func exe_sigle_command(button : Button, array: Array):
+func exe_sigle_command(adb_type: String, button : Button, array: Array):
 	# 点击时, 禁用掉当前的按钮
 	button.disabled = true
 	# 执行adb的命令
-	MyUtil.execute_adb_command(MyConstant.SignalADBType.SIGNAL_ADB_TYPE_FINISH, array)
+	MyUtil.execute_adb_command(adb_type, array)
 	# 延迟1秒钟时间
 	await get_tree().create_timer(1.0).timeout
 	# 取消按钮的禁用状态

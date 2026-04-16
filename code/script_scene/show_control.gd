@@ -14,7 +14,7 @@ func _ready() -> void:
 # 显示内容
 func show_control(message: String):
 	builder.append("[")
-	builder.append(current_time())
+	builder.append(MyUtil.current_time())
 	builder.append("]")
 	builder.append("\t")
 	builder.append(message)
@@ -34,55 +34,10 @@ func save_control():
 	if dirPath.is_empty():
 		MyUtil.sendMessageToArea(MyContext.getString(MyString.THE_PATH_CANNOT_BE_EMPTY))
 		return
-	var fileName = "systemLog_" + current_time() + ".txt"
+	var fileName = "systemLog_" + MyUtil.current_time() + ".txt"
 	MyUtil.write_string_to_file(dirPath, fileName, "".join(builder))
 	pass
 
-func current_time() -> String:
-	var timeBuilder = PackedStringArray()
-	var dic = Time.get_datetime_dict_from_system(true)
-	var year = dic.get("year")
-	var month = dic.get("month")
-	var day = dic.get("day")
-	var hour = dic.get("hour")
-	var minute = dic.get("minute")
-	var second = dic.get("second")
-	timeBuilder.append(str(year))
-	if month>9:
-		timeBuilder.append(month)
-	else:
-		timeBuilder.append("0")
-		timeBuilder.append(str(month))
-	if day>9:
-		timeBuilder.append(str(day))
-	else:
-		timeBuilder.append("0")
-		timeBuilder.append(str(day))
-	# 处理时差问题
-	if hour < 16:
-		hour = hour + 8
-	else:
-		hour = hour - 16
-	# 处理小时数据
-	if hour>9:
-		timeBuilder.append("_")
-		timeBuilder.append(str(hour))
-	else:
-		timeBuilder.append("_")
-		timeBuilder.append("0")
-		timeBuilder.append(str(hour))
-	if minute>9:
-		timeBuilder.append(str(minute))
-	else:
-		timeBuilder.append("0")
-		timeBuilder.append(str(minute))
-	if second>9:
-		timeBuilder.append(str(second))
-	else:
-		timeBuilder.append("0")
-		timeBuilder.append(str(second))
-	return "".join(timeBuilder)
-	
 
 func set_scorll_style():
 	# 在脚本中创建主题并应用到 RichTextLabel   

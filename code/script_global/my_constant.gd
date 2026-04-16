@@ -34,6 +34,8 @@ class SignalName:
 	
 # 信号关联的名称
 class SignalADBType:
+	static var SIGNAL_ADB_TYPE_CMD					: String = "cmd"
+	static var SIGNAL_ADB_TYPE_TASK_KILL				: String = "taskkill"
 	static var SIGNAL_ADB_TYPE_MIDDLE				: String = "signal_adb_type_middle"
 	static var SIGNAL_ADB_TYPE_FINISH 				: String = "signal_adb_type_finish"
 	pass
@@ -41,7 +43,7 @@ class SignalADBType:
 # 节点路由
 class NodeRoute:
 	static var MODEL_FILE							: String = "/root/Main/ModelFile"
-	static var MODEL_ANDROID						: String = "/root/Main/ModelAndroid"
+	static var MODEL_ANDROID							: String = "/root/Main/ModelAndroid"
 	pass
 
 # 场景节点的名称
